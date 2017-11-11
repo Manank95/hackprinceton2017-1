@@ -86,6 +86,13 @@ class HomeScreen extends React.Component {
     return (
       <View>
         <Text>No running tabs.</Text>
+        <View style={{paddingBottom:10, allignSelf: 'center', justifyContent: 'flex-start',}}>
+        <TouchableHighlight onPress={() => navigate('Add')} underlayColor="white">
+              <View style={styles.button}>
+                <Text style={styles.buttonText}>Add Friends</Text>
+              </View>
+          </TouchableHighlight>  
+      </View>
       </View>
     );
   }
