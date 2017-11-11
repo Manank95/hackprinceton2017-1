@@ -34,41 +34,38 @@ class LoginScreen extends React.Component {
 static navigationOptions = {
   title: 'Sign in or Sign Up',
 }
- constructor(props) {
-    super(props);
-    this.state = { text: 'yourusername' };
-  }
+
 render() {
-   let landingPic = {
-      uri: 'http://i63.tinypic.com/34zerso.jpg'
-    };
    const { navigate } = this.props.navigation;
    return (
      <ScrollView>
          <View style ={styles.container}>
-        <Text style = {{paddingTop:50}}></Text>
-        <View style={{alignItems:'center'}}>
-         <Image source={landingPic} style={styles.mainImage}/>
-         </View>
-        <Text style = {{paddingTop:20}}></Text>
         <Text style = {styles.subheading}>Enter your username and password to sign in or create an account</Text>
         <Text style = {{paddingTop:20}}> Username </Text>
-         <TextInput
-        style={{height: 40, borderColor: 'gray', borderWidth: 1}}
-        onChangeText={(text) => this.setState({text})}
-        value={this.state.text}
-      />
+       <TextInput
+          style={{height: 40}}
+          placeholder="your-username"
+          onChangeText={(text) => this.setState({text})}
+        />
+
       <Text style={{paddingTop:5}}></Text>
         <Text>Password</Text>
-         <TextInput
-        style={{height: 40, borderColor: 'gray', borderWidth: 1}}
-        onChangeText={(text) => this.setState({text})}
-        value={this.state.text}
-      />
-      <View style={{paddingTop:10, alignItems: 'center'}}>
+
+       <TextInput secureTextEntry={true}
+          style={{height: 40}}
+          placeholder="your-password"
+          onChangeText={(text) => this.setState({text})}
+        />
+      <View style={{paddingTop:30, alignItems: 'center'}}>
         <TouchableHighlight onPress={() => navigate('Home')} underlayColor="white">
               <View style={styles.button}>
-                <Text style={styles.buttonText}>Sign in / Sign up</Text>
+                <Text style={styles.buttonText}>Sign in</Text>
+              </View>
+          </TouchableHighlight>
+          <Text style={{paddingTop:2}}></Text>
+           <TouchableHighlight onPress={() => navigate('Home')} underlayColor="white">
+              <View style={styles.button}>
+                <Text style={styles.buttonText}>Sign Up</Text>
               </View>
           </TouchableHighlight>
       </View>
@@ -84,9 +81,9 @@ class HomeScreen extends React.Component {
     headerRight: <Button onPress={() => { Alert.alert('You tapped the button!')}}
     title="Add Friend"/>
   };
+
   render() {
     const { navigate } = this.props.navigation;
-    headerLeft: <Button onPress={() => navigate('Welcome') } title='Logout'/>
     return (
       <View>
         <Text>No running tabs.</Text>
@@ -95,11 +92,25 @@ class HomeScreen extends React.Component {
   }
 }
 
+class AddFriends extends React.Component {
+	static navigationOptions = {
+	};
+	render() {
+		const { navigate } = this.props.navigation;
+		return (
+			<View>
+				<Text>Enter your friend's username</Text>
+			</View>
+		);
+	}
+}
+
 
 const TabsApp = StackNavigator({
-  Welcome: {screen: WelcomeScreen},
-  Login: {screen: LoginScreen},
-  Home:   { screen: HomeScreen }},
+  Welcome: 	{screen: WelcomeScreen},
+  Login: 	{screen: LoginScreen},
+  Home:   	{screen: HomeScreen},
+  Add: 		{screen: AddFriends}},
 
   {
   	cardStyle: {backgroundColor: 'white'}
@@ -116,8 +127,7 @@ const styles = StyleSheet.create({
 
   containerLanding: {
    flex: 1,
-   padding: 20,
-   paddingTop: 22,
+    justifyContent: 'center',
    alignItems: 'center',
   },
 
@@ -125,10 +135,10 @@ const styles = StyleSheet.create({
    flex: 1,
    padding: 20,
    paddingTop: 22,
+   justifyContent: 'center',
   },
 
   landingPage: {
-    paddingTop: 175,
     alignItems: 'center',
   },
 
@@ -142,7 +152,6 @@ const styles = StyleSheet.create({
     fontWeight: 'bold',
   },
     button: {
-    marginBottom: 30,
     width: 260,
     alignItems: 'center',
     backgroundColor: '#2196F3'
