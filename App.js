@@ -11,7 +11,7 @@ class WelcomeScreen extends React.Component {
       uri: 'http://i63.tinypic.com/34zerso.jpg'
     };
     const { navigate } = this.props.navigation;
-  
+
         return (
           <View style ={styles.containerLanding}>
           <View style={styles.landingPage}>
@@ -23,7 +23,7 @@ class WelcomeScreen extends React.Component {
               <View style={styles.button}>
                 <Text style={styles.buttonText}>Sign in / Sign up</Text>
               </View>
-          </TouchableHighlight>    
+          </TouchableHighlight>
           </View>
           </View>
     );
@@ -33,8 +33,13 @@ class WelcomeScreen extends React.Component {
 class LoginScreen extends React.Component {
 static navigationOptions = {
   title: 'Sign in or Sign Up',
+<<<<<<< HEAD
 };
   
+=======
+}
+
+>>>>>>> 52efed0f5124c5409806319bdb14712388c56f4a
 render() {
 
   let loginPic = {
@@ -43,6 +48,7 @@ render() {
 
    const { navigate } = this.props.navigation;
    return (
+     <ScrollView>
          <View style ={styles.container}>
          <View style={{alignItems:'center', paddingBottom:20}}>
          <Image source={loginPic} style={{width: 43, height: 40}}/>
@@ -57,9 +63,9 @@ render() {
         />
 
       <Text style={{paddingTop:5}}></Text>
-        <Text>Password</Text>   
-         
-       <TextInput secureTextEntry={true} 
+        <Text>Password</Text>
+
+       <TextInput secureTextEntry={true}
           style={{height: 40}}
           placeholder="your-password"
           onChangeText={(text) => this.setState({text})}
@@ -69,15 +75,16 @@ render() {
               <View style={styles.button}>
                 <Text style={styles.buttonText}>Sign in</Text>
               </View>
-          </TouchableHighlight>  
+          </TouchableHighlight>
           <Text style={{paddingTop:2}}></Text>
            <TouchableHighlight onPress={() => navigate('Home')} underlayColor="white">
               <View style={styles.buttonSecondary}>
                 <Text style={styles.buttonText}>Sign Up</Text>
               </View>
-          </TouchableHighlight>  
+          </TouchableHighlight>
       </View>
       </View>
+    </ScrollView>
    );
 }
 }
@@ -85,6 +92,8 @@ render() {
 class HomeScreen extends React.Component {
   static navigationOptions = {
   	title: 'Welcome Back!',
+    headerRight: <Button onPress={() => { Alert.alert('You tapped the button!')}}
+    title="Add Friend"/>
   };
 
   render() {
@@ -129,7 +138,7 @@ export default class App extends React.Component {
 }
 
 const styles = StyleSheet.create({
-  
+
   containerLanding: {
    flex: 1,
     justifyContent: 'center',
