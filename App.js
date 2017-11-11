@@ -1,17 +1,5 @@
 import React, { Component } from 'react';
 import { TouchableHighlight, Image, Alert, Button, AppRegistry, SectionList, StyleSheet, Text, View } from 'react-native';
-import * as firebase from 'firebase';
-
-const config = {
-    apiKey: "AIzaSyBOq8l8BuXTlFLKu4UL-JxDApBMydeOJ7Q",
-    authDomain: "tabs-377bd.firebaseapp.com",
-    databaseURL: "https:\//tabs-377bd.firebaseio.com",
-    projectId: "tabs-377bd",
-    storageBucket: "tabs-377bd.appspot.com",
-    messagingSenderId: "201277294910"
-};
-const firebaseApp = firebase.initializeApp(config);
-
 
 export default class MainView extends Component {
   
