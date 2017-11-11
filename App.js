@@ -46,11 +46,7 @@ render() {
    const { navigate } = this.props.navigation;
    return (
          <View style ={styles.container}>
-<<<<<<< HEAD
-        <Text style = {{paddingTop:60}}></Text>
-=======
         <Text style = {{paddingTop:50}}></Text>
->>>>>>> d027ad97bf4dd6bebbb0482f15f9dae321a0d4c4
         <View style={{alignItems:'center'}}>
          <Image source={landingPic} style={styles.mainImage}/>
          </View>
@@ -60,23 +56,14 @@ render() {
          <TextInput
         style={{height: 40, borderColor: 'gray', borderWidth: 1}}
         onChangeText={(text) => this.setState({text})}
-<<<<<<< HEAD
-        value={"hi"}
-      />
-=======
         value={this.state.text}
       />
       <Text style={{paddingTop:5}}></Text>
->>>>>>> d027ad97bf4dd6bebbb0482f15f9dae321a0d4c4
         <Text>Password</Text>   
          <TextInput
         style={{height: 40, borderColor: 'gray', borderWidth: 1}}
         onChangeText={(text) => this.setState({text})}
-<<<<<<< HEAD
-        value={"hi"}
-=======
         value={this.state.text}
->>>>>>> d027ad97bf4dd6bebbb0482f15f9dae321a0d4c4
       /> 
       <View style={{paddingTop:10, alignItems: 'center'}}>
         <TouchableHighlight onPress={() => navigate('Home')} underlayColor="white">
