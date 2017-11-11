@@ -2,7 +2,10 @@ import React, { Component } from 'react';
 import { TouchableHighlight, Image, Alert, Button, AppRegistry, SectionList, StyleSheet, Text, View } from 'react-native';
 import { StackNavigator } from 'react-navigation';
 
-class LoginScreen extends React.Component {
+class WelcomeScreen extends React.Component {
+  static navigationOptions = {
+    title: 'Welcome',
+  };
   render(){
     let landingPic = {
       uri: 'http://i63.tinypic.com/34zerso.jpg'
@@ -16,15 +19,29 @@ class LoginScreen extends React.Component {
           <Text> </Text>
           <Text style={styles.headers}>Tabs</Text>
           <Text> </Text>
-        <TouchableHighlight onPress={() => navigate('Home')} underlayColor="white">
+        <TouchableHighlight onPress={() => navigate('Login')} underlayColor="white">
               <View style={styles.button}>
                 <Text style={styles.buttonText}>Sign in / Sign up</Text>
               </View>
           </TouchableHighlight>    
           </View>
-          </View> // end of main container
+          </View>
     );
     }
+}
+
+class LoginScreen extends React.Component {
+static navigationOptions = {
+  title: 'Sign in or Sign Up',
+}
+render() {
+   const { navigate } = this.props.navigation;
+   return (
+         <View style ={styles.container}>
+        <Text style={styles.headers}>Tabs</Text>
+      </View>
+   );
+}
 }
 
 class HomeScreen extends React.Component {
@@ -41,8 +58,10 @@ class HomeScreen extends React.Component {
   }
 }
 
+
 const TabsApp = StackNavigator({
-  Login:  { screen: LoginScreen },
+  Welcome: {screen: WelcomeScreen},
+  Login: {screen: LoginScreen},
   Home:   { screen: HomeScreen },
 });
 
