@@ -34,6 +34,10 @@ class LoginScreen extends React.Component {
 static navigationOptions = {
   title: 'Sign in or Sign Up',
 }
+ constructor(props) {
+    super(props);
+    this.state = { text: 'yourusername' };
+  }
 render() {
    let landingPic = {
       uri: 'http://i63.tinypic.com/34zerso.jpg'
@@ -41,7 +45,7 @@ render() {
    const { navigate } = this.props.navigation;
    return (
          <View style ={styles.container}>
-        <Text style = {{paddingTop:60}}></Text>
+        <Text style = {{paddingTop:50}}></Text>
         <View style={{alignItems:'center'}}>
          <Image source={landingPic} style={styles.mainImage}/>
          </View>
@@ -51,13 +55,14 @@ render() {
          <TextInput
         style={{height: 40, borderColor: 'gray', borderWidth: 1}}
         onChangeText={(text) => this.setState({text})}
-        value={"hi"}
+        value={this.state.text}
       />
+      <Text style={{paddingTop:5}}></Text>
         <Text>Password</Text>   
          <TextInput
         style={{height: 40, borderColor: 'gray', borderWidth: 1}}
         onChangeText={(text) => this.setState({text})}
-        value={"hi"}
+        value={this.state.text}
       /> 
       <View style={{paddingTop:10, alignItems: 'center'}}>
         <TouchableHighlight onPress={() => navigate('Home')} underlayColor="white">
