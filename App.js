@@ -41,15 +41,31 @@ render() {
    const { navigate } = this.props.navigation;
    return (
          <View style ={styles.container}>
+        <Text style = {{paddingTop:60}}></Text>
+        <View style={{alignItems:'center'}}>
          <Image source={landingPic} style={styles.mainImage}/>
+         </View>
+        <Text style = {{paddingTop:20}}></Text>
         <Text style = {styles.subheading}>Enter your username and password to sign in or create an account</Text>
-        <Text> Username </Text>
+        <Text style = {{paddingTop:20}}> Username </Text>
          <TextInput
         style={{height: 40, borderColor: 'gray', borderWidth: 1}}
         onChangeText={(text) => this.setState({text})}
         value={"hi"}
       />
-        <Text>Password</Text>      
+        <Text>Password</Text>   
+         <TextInput
+        style={{height: 40, borderColor: 'gray', borderWidth: 1}}
+        onChangeText={(text) => this.setState({text})}
+        value={"hi"}
+      /> 
+      <View style={{paddingTop:10, alignItems: 'center'}}>
+        <TouchableHighlight onPress={() => navigate('Home')} underlayColor="white">
+              <View style={styles.button}>
+                <Text style={styles.buttonText}>Sign in / Sign up</Text>
+              </View>
+          </TouchableHighlight>  
+      </View>
       </View>
    );
 }
