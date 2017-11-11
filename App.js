@@ -32,7 +32,7 @@ class WelcomeScreen extends React.Component {
 
 class LoginScreen extends React.Component {
 static navigationOptions = {
-  title: 'Sign in or Sign Up',
+   header: null,
 };
   
 
@@ -161,6 +161,7 @@ const styles = StyleSheet.create({
   subheading: {
     fontSize: 18,
     fontWeight: 'bold',
+    textAlign: 'center',
   },
     button: {
     width: 260,
