@@ -33,13 +33,9 @@ class WelcomeScreen extends React.Component {
 class LoginScreen extends React.Component {
 static navigationOptions = {
   title: 'Sign in or Sign Up',
-<<<<<<< HEAD
 };
   
-=======
-}
 
->>>>>>> 52efed0f5124c5409806319bdb14712388c56f4a
 render() {
 
   let loginPic = {
@@ -50,7 +46,7 @@ render() {
    return (
      <ScrollView>
          <View style ={styles.container}>
-         <View style={{alignItems:'center', paddingBottom:20}}>
+         <View style={{alignItems:'center', paddingTop:20, paddingBottom:30}}>
          <Image source={loginPic} style={{width: 43, height: 40}}/>
          </View>
 
@@ -82,6 +78,7 @@ render() {
                 <Text style={styles.buttonText}>Sign Up</Text>
               </View>
           </TouchableHighlight>
+      <Text style={{paddingBottom:150}}></Text>
       </View>
       </View>
     </ScrollView>
