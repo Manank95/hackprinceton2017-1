@@ -33,12 +33,21 @@ class WelcomeScreen extends React.Component {
 class LoginScreen extends React.Component {
 static navigationOptions = {
   title: 'Sign in or Sign Up',
-}
+};
   
 render() {
+
+  let loginPic = {
+    uri: 'http://i66.tinypic.com/iva5ao.jpg'
+  };
+
    const { navigate } = this.props.navigation;
    return (
          <View style ={styles.container}>
+         <View style={{alignItems:'center', paddingBottom:20}}>
+         <Image source={loginPic} style={{width: 43, height: 40}}/>
+         </View>
+
         <Text style = {styles.subheading}>Enter your username and password to sign in or create an account</Text>
         <Text style = {{paddingTop:20}}> Username </Text>
        <TextInput
@@ -63,7 +72,7 @@ render() {
           </TouchableHighlight>  
           <Text style={{paddingTop:2}}></Text>
            <TouchableHighlight onPress={() => navigate('Home')} underlayColor="white">
-              <View style={styles.button}>
+              <View style={styles.buttonSecondary}>
                 <Text style={styles.buttonText}>Sign Up</Text>
               </View>
           </TouchableHighlight>  
@@ -151,6 +160,12 @@ const styles = StyleSheet.create({
     width: 260,
     alignItems: 'center',
     backgroundColor: '#2196F3'
+  },
+
+   buttonSecondary: {
+    width: 260,
+    alignItems: 'center',
+    backgroundColor: '#8DC63F'
   },
 
   buttonText: {
