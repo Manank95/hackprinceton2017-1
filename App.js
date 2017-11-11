@@ -76,11 +76,10 @@ render() {
 class HomeScreen extends React.Component {
   static navigationOptions = {
   	title: 'Welcome Back!',
-    headerRight: <Button title="Add Friend"/>
   };
+
   render() {
     const { navigate } = this.props.navigation;
-    headerLeft: <Button onPress={() => navigate('Welcome') } title='Logout'/>
     return (
       <View>
         <Text>No running tabs.</Text>
@@ -89,11 +88,25 @@ class HomeScreen extends React.Component {
   }
 }
 
+class AddFriends extends React.Component {
+	static navigationOptions = {
+	};
+	render() {
+		const { navigate } = this.props.navigation;
+		return (
+			<View>
+				<Text>Enter your friend's username</Text>
+			</View>
+		);
+	}
+}
+
 
 const TabsApp = StackNavigator({
-  Welcome: {screen: WelcomeScreen},
-  Login: {screen: LoginScreen},
-  Home:   { screen: HomeScreen }},
+  Welcome: 	{screen: WelcomeScreen},
+  Login: 	{screen: LoginScreen},
+  Home:   	{screen: HomeScreen},
+  Add: 		{screen: AddFriends}},
 
   {
   	cardStyle: {backgroundColor: 'white'}
