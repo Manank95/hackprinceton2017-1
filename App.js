@@ -4,7 +4,6 @@ import { StackNavigator } from 'react-navigation';
 
 class WelcomeScreen extends React.Component {
   static navigationOptions = {
-    title: 'Welcome',
     header: null,
   };
   render(){
@@ -76,10 +75,12 @@ render() {
 
 class HomeScreen extends React.Component {
   static navigationOptions = {
-    title: 'Welcome Back!',
+  	title: 'Welcome Back!',
+    headerRight: <Button title="Add Friend"/>
   };
   render() {
     const { navigate } = this.props.navigation;
+    headerLeft: <Button onPress={() => navigate('Welcome') } title='Logout'/>
     return (
       <View>
         <Text>No running tabs.</Text>
@@ -92,8 +93,12 @@ class HomeScreen extends React.Component {
 const TabsApp = StackNavigator({
   Welcome: {screen: WelcomeScreen},
   Login: {screen: LoginScreen},
-  Home:   { screen: HomeScreen },
-});
+  Home:   { screen: HomeScreen }},
+
+  {
+  	cardStyle: {backgroundColor: 'white'}
+  }
+);
 
 export default class App extends React.Component {
   render() {
