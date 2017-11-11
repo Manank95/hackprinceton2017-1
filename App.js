@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { TouchableHighlight, Image, Alert, Button, AppRegistry, SectionList, StyleSheet, Text, View } from 'react-native';
+import { TextInput, TouchableHighlight, Image, Alert, Button, AppRegistry, SectionList, StyleSheet, Text, View } from 'react-native';
 import { StackNavigator } from 'react-navigation';
 
 class WelcomeScreen extends React.Component {
@@ -13,7 +13,7 @@ class WelcomeScreen extends React.Component {
     const { navigate } = this.props.navigation;
   
         return (
-          <View style ={styles.container}>
+          <View style ={styles.containerLanding}>
           <View style={styles.landingPage}>
           <Image source={landingPic} style={{width: 200, height: 129}}/>
           <Text> </Text>
@@ -35,10 +35,21 @@ static navigationOptions = {
   title: 'Sign in or Sign Up',
 }
 render() {
+   let landingPic = {
+      uri: 'http://i63.tinypic.com/34zerso.jpg'
+    };
    const { navigate } = this.props.navigation;
    return (
          <View style ={styles.container}>
-        <Text style={styles.headers}>Tabs</Text>
+         <Image source={landingPic} style={styles.mainImage}/>
+        <Text style = {styles.subheading}>Enter your username and password to sign in or create an account</Text>
+        <Text> Username </Text>
+         <TextInput
+        style={{height: 40, borderColor: 'gray', borderWidth: 1}}
+        onChangeText={(text) => this.setState({text})}
+        value={"hi"}
+      />
+        <Text>Password</Text>      
       </View>
    );
 }
@@ -73,10 +84,17 @@ export default class App extends React.Component {
 
 const styles = StyleSheet.create({
   
-  container: {
+  containerLanding: {
    flex: 1,
+   padding: 20,
    paddingTop: 22,
    alignItems: 'center',
+  },
+
+  container: {
+   flex: 1,
+   padding: 20,
+   paddingTop: 22,
   },
 
   landingPage: {
@@ -89,7 +107,10 @@ const styles = StyleSheet.create({
     fontWeight: 'bold',
   },
 
-
+  subheading: {
+    fontSize: 18,
+    fontWeight: 'bold',
+  },
     button: {
     marginBottom: 30,
     width: 260,
@@ -115,4 +136,9 @@ const styles = StyleSheet.create({
     fontSize: 18,
     height: 44,
   },
+  mainImage: {
+  width: 200,
+  height: 129,
+  alignItems: 'center',
+   },
 })
