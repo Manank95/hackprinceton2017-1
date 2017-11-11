@@ -1,30 +1,54 @@
 import React, { Component } from 'react';
 import { TouchableHighlight, Image, Alert, Button, AppRegistry, SectionList, StyleSheet, Text, View } from 'react-native';
+import { StackNavigator } from 'react-navigation';
 
-export default class MainView extends Component {
-  
-  render() {
+class LoginScreen extends React.Component {
+  render(){
     let landingPic = {
-    uri: 'http://i63.tinypic.com/34zerso.jpg'
+      uri: 'http://i63.tinypic.com/34zerso.jpg'
     };
-    
-    return (
-      <View style ={styles.container}>
-      <View style={styles.landingPage}>
-      <Image source={landingPic} style={{width: 200, height: 129}}/>
-      <Text> </Text>
-      <Text style={styles.headers}>Tabs</Text>
-      <Text> </Text>
-     <TouchableHighlight onPress={() => { Alert.alert('You tapped the button!')}} underlayColor="white">
-          <View style={styles.button}>
-            <Text style={styles.buttonText}>Sign in / Sign up</Text>
+    const { navigate } = this.props.navigation;
+  
+        return (
+          <View style ={styles.container}>
+          <View style={styles.landingPage}>
+          <Image source={landingPic} style={{width: 200, height: 129}}/>
+          <Text> </Text>
+          <Text style={styles.headers}>Tabs</Text>
+          <Text> </Text>
+        <TouchableHighlight onPress={() => navigate('Home')} underlayColor="white">
+              <View style={styles.button}>
+                <Text style={styles.buttonText}>Sign in / Sign up</Text>
+              </View>
+          </TouchableHighlight>    
           </View>
-        </TouchableHighlight>
-
-       
-      </View>
-      </View> // end of main container
+          </View> // end of main container
     );
+    }
+}
+
+class HomeScreen extends React.Component {
+  static navigationOptions = {
+    title: 'Welcome Back!',
+  };
+  render() {
+    const { navigate } = this.props.navigation;
+    return (
+      <View>
+        <Text>No running tabs.</Text>
+      </View>
+    );
+  }
+}
+
+const TabsApp = StackNavigator({
+  Login:  { screen: LoginScreen },
+  Home:   { screen: HomeScreen },
+});
+
+export default class App extends React.Component {
+  render() {
+    return <TabsApp />;
   }
 }
 
