@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { TextInput, TouchableHighlight, Image, Alert, Button, AppRegistry, SectionList, StyleSheet, Text, View } from 'react-native';
+import { ScrollView, TextInput, TouchableHighlight, Image, Alert, Button, AppRegistry, SectionList, StyleSheet, Text, View } from 'react-native';
 import { StackNavigator } from 'react-navigation';
 
 class WelcomeScreen extends React.Component {
@@ -35,40 +35,37 @@ class LoginScreen extends React.Component {
 static navigationOptions = {
   title: 'Sign in or Sign Up',
 }
- constructor(props) {
-    super(props);
-    this.state = { text: 'yourusername' };
-  }
+  
 render() {
-   let landingPic = {
-      uri: 'http://i63.tinypic.com/34zerso.jpg'
-    };
    const { navigate } = this.props.navigation;
    return (
          <View style ={styles.container}>
-        <Text style = {{paddingTop:50}}></Text>
-        <View style={{alignItems:'center'}}>
-         <Image source={landingPic} style={styles.mainImage}/>
-         </View>
-        <Text style = {{paddingTop:20}}></Text>
         <Text style = {styles.subheading}>Enter your username and password to sign in or create an account</Text>
         <Text style = {{paddingTop:20}}> Username </Text>
-         <TextInput
-        style={{height: 40, borderColor: 'gray', borderWidth: 1}}
-        onChangeText={(text) => this.setState({text})}
-        value={this.state.text}
-      />
+       <TextInput
+          style={{height: 40}}
+          placeholder="your-username"
+          onChangeText={(text) => this.setState({text})}
+        />
+
       <Text style={{paddingTop:5}}></Text>
         <Text>Password</Text>   
-         <TextInput
-        style={{height: 40, borderColor: 'gray', borderWidth: 1}}
-        onChangeText={(text) => this.setState({text})}
-        value={this.state.text}
-      /> 
-      <View style={{paddingTop:10, alignItems: 'center'}}>
+         
+       <TextInput secureTextEntry={true} 
+          style={{height: 40}}
+          placeholder="your-password"
+          onChangeText={(text) => this.setState({text})}
+        />
+      <View style={{paddingTop:30, alignItems: 'center'}}>
         <TouchableHighlight onPress={() => navigate('Home')} underlayColor="white">
               <View style={styles.button}>
-                <Text style={styles.buttonText}>Sign in / Sign up</Text>
+                <Text style={styles.buttonText}>Sign in</Text>
+              </View>
+          </TouchableHighlight>  
+          <Text style={{paddingTop:2}}></Text>
+           <TouchableHighlight onPress={() => navigate('Home')} underlayColor="white">
+              <View style={styles.button}>
+                <Text style={styles.buttonText}>Sign Up</Text>
               </View>
           </TouchableHighlight>  
       </View>
@@ -108,8 +105,7 @@ const styles = StyleSheet.create({
   
   containerLanding: {
    flex: 1,
-   padding: 20,
-   paddingTop: 22,
+    justifyContent: 'center',
    alignItems: 'center',
   },
 
@@ -117,10 +113,10 @@ const styles = StyleSheet.create({
    flex: 1,
    padding: 20,
    paddingTop: 22,
+   justifyContent: 'center',
   },
 
   landingPage: {
-    paddingTop: 175,
     alignItems: 'center',
   },
 
@@ -134,7 +130,6 @@ const styles = StyleSheet.create({
     fontWeight: 'bold',
   },
     button: {
-    marginBottom: 30,
     width: 260,
     alignItems: 'center',
     backgroundColor: '#2196F3'
