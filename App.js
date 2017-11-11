@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { TextInput, TouchableHighlight, Image, Alert, Button, AppRegistry, SectionList, StyleSheet, Text, View } from 'react-native';
+import { ScrollView, TextInput, TouchableHighlight, Image, Alert, Button, AppRegistry, SectionList, StyleSheet, Text, View } from 'react-native';
 import { StackNavigator } from 'react-navigation';
 
 class WelcomeScreen extends React.Component {
@@ -11,7 +11,7 @@ class WelcomeScreen extends React.Component {
       uri: 'http://i63.tinypic.com/34zerso.jpg'
     };
     const { navigate } = this.props.navigation;
-  
+
         return (
           <View style ={styles.containerLanding}>
           <View style={styles.landingPage}>
@@ -23,7 +23,7 @@ class WelcomeScreen extends React.Component {
               <View style={styles.button}>
                 <Text style={styles.buttonText}>Sign in / Sign up</Text>
               </View>
-          </TouchableHighlight>    
+          </TouchableHighlight>
           </View>
           </View>
     );
@@ -44,6 +44,7 @@ render() {
     };
    const { navigate } = this.props.navigation;
    return (
+     <ScrollView>
          <View style ={styles.container}>
         <Text style = {{paddingTop:50}}></Text>
         <View style={{alignItems:'center'}}>
@@ -58,20 +59,21 @@ render() {
         value={this.state.text}
       />
       <Text style={{paddingTop:5}}></Text>
-        <Text>Password</Text>   
+        <Text>Password</Text>
          <TextInput
         style={{height: 40, borderColor: 'gray', borderWidth: 1}}
         onChangeText={(text) => this.setState({text})}
         value={this.state.text}
-      /> 
+      />
       <View style={{paddingTop:10, alignItems: 'center'}}>
         <TouchableHighlight onPress={() => navigate('Home')} underlayColor="white">
               <View style={styles.button}>
                 <Text style={styles.buttonText}>Sign in / Sign up</Text>
               </View>
-          </TouchableHighlight>  
+          </TouchableHighlight>
       </View>
       </View>
+    </ScrollView>
    );
 }
 }
@@ -79,7 +81,8 @@ render() {
 class HomeScreen extends React.Component {
   static navigationOptions = {
   	title: 'Welcome Back!',
-    headerRight: <Button title="Add Friend"/>
+    headerRight: <Button onPress={() => { Alert.alert('You tapped the button!')}}
+    title="Add Friend"/>
   };
   render() {
     const { navigate } = this.props.navigation;
@@ -110,7 +113,7 @@ export default class App extends React.Component {
 }
 
 const styles = StyleSheet.create({
-  
+
   containerLanding: {
    flex: 1,
    padding: 20,
