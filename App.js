@@ -242,7 +242,7 @@ class AddFriends extends React.Component {
            onChangeText={(text) => this.setState({text})}
          />
          <Text style={{paddingBottom:15}}></Text>
-         <TouchableHighlight onPress={() => navigate('Home')} underlayColor="white">
+         <TouchableHighlight onPress={() => Alert.alert('You already have this user on your friends list!')} underlayColor="white">
               <View style={{backgroundColor: '#2196F3'}}>
                 <Text style={styles.buttonText}>Add Friend</Text>
               </View>
