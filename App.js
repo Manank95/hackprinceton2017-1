@@ -351,6 +351,14 @@ class PaymentScreen extends React.Component {
          />
          <Text style={{paddingBottom:5}}></Text>
 
+         <Text style = {styles.subheading2}>Description</Text>
+         <TextInput
+           style={{height: 40, textAlign: 'left', paddingLeft: 10}}
+           placeholder="memo"
+           onChangeText={(text) => this.setState({text})}
+         />
+         <Text style={{paddingBottom:5}}></Text>
+
          <TouchableHighlight onPress={() => navigate('Tab')} underlayColor="white">
               <View style={{backgroundColor: '#2196F3'}}>
                 <Text style={styles.buttonText}>Update</Text>
