@@ -88,7 +88,7 @@ render() {
 
 class HomeScreen extends React.Component {
   static navigationOptions = {
-  	title: 'Username',
+    header: null,
   };
 
   render() {
@@ -96,23 +96,64 @@ class HomeScreen extends React.Component {
     return (
       <View>
       <View style={{paddingBottom:10, paddingTop:10}}>
-        <TouchableHighlight onPress={() => navigate('Add')} underlayColor="white">
-              <View style={{backgroundColor: 'white'}}>
-                <Text style={styles.friendText}>Tiffany Quon
-                <Text style={styles.positiveTabText}>+$10.00</Text></Text>
+       <View style ={{paddingTop:25, flexDirection: 'row', justifyContent: 'space-between'}}>
+             <TouchableHighlight underlayColor="white">
+              <View>
+                <Text style={{color:'black', fontWeight:'bold', fontSize: 18, paddingLeft:10, marginTop: 9}}>Sydney's Tabs</Text>
               </View>
-          </TouchableHighlight>  
-      </View>
+          </TouchableHighlight>
 
-      <View style={{paddingBottom:10, paddingTop:10}}>
-        <TouchableHighlight onPress={() => navigate('Add')} underlayColor="white">
-              <View style={{backgroundColor: 'white'}}>
-                <Text style={styles.friendText}>Owen Bulka
-                <Text style={styles.negativeTabText}>-$42.00</Text></Text>
+        <Button style={{paddingRight:15}} title = "Log Out"  
+        onPress={() => navigate('Welcome')}></Button>
+        </View>
+
+		<View style ={{paddingTop:25, flexDirection: 'row', justifyContent: 'space-between'}}>
+             <TouchableHighlight onPress={() => navigate('Home')} underlayColor="white">
+              <View>
+                <Text style={styles.friendText}>Tiffany Quon</Text>
               </View>
-          </TouchableHighlight>  
-      </View>
+          	 </TouchableHighlight>
+			 <TouchableHighlight onPress={() => navigate('Home')} underlayColor="white">
+              <View>
+                <Text style={styles.positiveTabText}>+ $5.32 </Text>
+              </View>
+          	 </TouchableHighlight>
+        </View>
 
+      
+
+       <View style ={{paddingTop:25, flexDirection: 'row', justifyContent: 'space-between'}}>
+             <TouchableHighlight onPress={() => navigate('Home')} underlayColor="white">
+              <View>
+                <Text style={styles.friendText}>Owen Bulka</Text>
+              </View>
+          	 </TouchableHighlight>
+			 <TouchableHighlight onPress={() => navigate('Home')} underlayColor="white">
+              <View>
+                <Text style={styles.negativeTabText}>- $42.50</Text>
+              </View>
+          	 </TouchableHighlight>
+        </View>
+
+        <View style ={{paddingTop:25, flexDirection: 'row', justifyContent: 'space-between'}}>
+             <TouchableHighlight onPress={() => navigate('Home')} underlayColor="white">
+              <View>
+                <Text style={styles.friendText}>Cindy Zhang</Text>
+              </View>
+          	 </TouchableHighlight>
+			 <TouchableHighlight onPress={() => navigate('Home')} underlayColor="white">
+              <View>
+                <Text style={styles.positiveTabText}>+ $1.07 </Text>
+              </View>
+          	 </TouchableHighlight>
+        </View>
+
+
+
+
+
+
+      </View>
 
 
         <View style={{paddingBottom:10}}>
@@ -213,29 +254,23 @@ const styles = StyleSheet.create({
 
   friendText: {
   	padding: 5,
-  	paddingLeft: 15,
+  	paddingLeft: 10,
   	fontSize: 16,
   	color: 'black',
-  	textAlign: 'left',
-  	fontWeight: 'bold'
   },
 
   positiveTabText: {
   	padding: 5,
-  	paddingRight: 15,
+  	paddingRight: 10,
   	fontSize: 16,
   	color: '#8DC63F',
-  	textAlign: 'right',
-  	fontWeight: 'bold'
   },
 
   negativeTabText: {
   	padding: 5,
-  	paddingRight: 15,
+  	paddingRight: 10,
   	fontSize: 16,
   	color: '#DC143C',
-  	textAlign: 'right',
-  	fontWeight: 'bold'
   },
 
   buttonText: {
