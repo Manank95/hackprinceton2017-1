@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { ScrollView, TextInput, TouchableHighlight, Image, Alert, Button, AppRegistry, SectionList, StyleSheet, Text, View } from 'react-native';
 import { StackNavigator } from 'react-navigation';
+import { KeyboardAwareScrollView } from 'react-native-keyboard-aware-scroll-view';
 
 class WelcomeScreen extends React.Component {
   static navigationOptions = {
@@ -47,9 +48,10 @@ render() {
 
    const { navigate } = this.props.navigation;
    return (
-     <ScrollView centerContent={true}>
+     <KeyboardAwareScrollView 
+     scrollEnabled={false}>
          <View style ={styles.container}>
-         <View style={{alignItems:'center', paddingTop:20, paddingBottom:30}}>
+         <View style={{alignItems:'center', justifyContent: 'center', paddingTop:63, paddingBottom:30}}>
          <Image source={loginPic} style={{width: 43, height: 40}}/>
          </View>
 
@@ -84,7 +86,7 @@ render() {
       <Text style={{paddingBottom:5}}></Text>
       </View>
       </View>
-    </ScrollView>
+    </KeyboardAwareScrollView>
    );
 }
 }
