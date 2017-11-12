@@ -107,6 +107,17 @@ class HomeScreen extends React.Component {
         onPress={() => navigate('Welcome')}></Button>
         </View>
 
+        <TouchableHighlight onPress={() => navigate('Add')} underlayColor="white">
+              <View style={{backgroundColor: 'white'}}>
+                <Text style={styles.friendText}>Tiffany Quon
+                <Text style={styles.positiveTabText}>+$10.00</Text></Text>
+              </View>
+          </TouchableHighlight>
+
+        <Button style={{paddingRight:15}} title = "Log Out"  
+        onPress={() => navigate('Welcome')}></Button>
+        </View>
+
 		<View style ={{paddingTop:25, flexDirection: 'row', justifyContent: 'space-between'}}>
              <TouchableHighlight onPress={() => navigate('Home')} underlayColor="white">
               <View>
