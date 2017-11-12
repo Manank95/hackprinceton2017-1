@@ -88,7 +88,7 @@ render() {
 
 class HomeScreen extends React.Component {
   static navigationOptions = {
-  	title: 'Username',
+    header: null,
   };
 
   render() {
@@ -96,6 +96,17 @@ class HomeScreen extends React.Component {
     return (
       <View>
       <View style={{paddingBottom:10, paddingTop:10}}>
+       <View style ={{paddingTop:25, flexDirection: 'row', justifyContent: 'space-between'}}>
+             <TouchableHighlight underlayColor="white">
+              <View>
+                <Text style={{color:'black', fontWeight:'bold', fontSize: 18, paddingLeft:10, marginTop: 9}}>Sydney's Tabs</Text>
+              </View>
+          </TouchableHighlight>
+
+        <Button style={{paddingRight:15}} title = "Log Out"  
+        onPress={() => navigate('Welcome')}></Button>
+        </View>
+
         <TouchableHighlight onPress={() => navigate('Add')} underlayColor="white">
               <View style={{backgroundColor: 'white'}}>
                 <Text style={styles.friendText}>Tiffany Quon
