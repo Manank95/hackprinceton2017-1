@@ -34,7 +34,7 @@ class LoginScreen extends React.Component {
 static navigationOptions = {
    header: null,
 };
-  
+
 
 render() {
 
@@ -69,11 +69,11 @@ render() {
       <View style={{paddingTop:30, alignItems: 'center'}}>
         <TouchableHighlight onPress={() => navigate('Home')} underlayColor="white">
               <View style={styles.button}>
-                <Text style={styles.buttonText}>Sign in</Text>
+                <Text style={styles.buttonText}>Sign In</Text>
               </View>
           </TouchableHighlight>
           <Text style={{paddingTop:2}}></Text>
-           <TouchableHighlight onPress={() => navigate('Home')} underlayColor="white">
+           <TouchableHighlight onPress={() => navigate('Signup')} underlayColor="white">
               <View style={styles.buttonSecondary}>
                 <Text style={styles.buttonText}>Sign Up</Text>
               </View>
@@ -89,7 +89,7 @@ render() {
 class HomeScreen extends React.Component {
   static navigationOptions = {
   	title: 'Welcome Back!',
-    headerRight: <Button onPress={() => { Alert.alert('You tapped the button!')}}
+    headerRight: <Button onPress={() => { Alert.alert('A thing happened!')}}
     title="Add Friend"/>
   };
 
@@ -110,18 +110,32 @@ class AddFriends extends React.Component {
 		const { navigate } = this.props.navigation;
 		return (
 			<View>
-				<Text>Enter your friend's username</Text>
+				<Text>'Enter your friend\'s username'</Text>
 			</View>
 		);
 	}
 }
 
+class SignupScreen extends React.Component {
+	static navigationOptions = {
+	};
+	render() {
+		const { navigate } = this.props.navigation;
+		return (
+			<View>
+				<Text>Thanks for signing up! Please log in.</Text>
+			</View>
+		);
+	}
+}
 
 const TabsApp = StackNavigator({
   Welcome: 	{screen: WelcomeScreen},
   Login: 	{screen: LoginScreen},
   Home:   	{screen: HomeScreen},
-  Add: 		{screen: AddFriends}},
+  Add: 		{screen: AddFriends},
+  Signup: {screen: SignupScreen}
+  },
 
   {
   	cardStyle: {backgroundColor: 'white'}
