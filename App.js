@@ -1,6 +1,9 @@
 import React, { Component } from 'react';
 import { ScrollView, TextInput, TouchableHighlight, Image, Alert, Button, AppRegistry, SectionList, StyleSheet, Text, View } from 'react-native';
 import { StackNavigator } from 'react-navigation';
+import Meteor from 'react-native-meteor';
+
+const SERVER_URL = 'ws://10.24.206.70:3000/websocket';
 
 class WelcomeScreen extends React.Component {
   static navigationOptions = {
@@ -31,10 +34,14 @@ class WelcomeScreen extends React.Component {
 }
 
 class LoginScreen extends React.Component {
+    componentWillMount() {
+	Meteor.connect(SERVER_URL);
+    }
+
 static navigationOptions = {
 header: null,
 };
-  
+
 
 render() {
 
@@ -69,11 +76,11 @@ render() {
       <View style={{paddingTop:30, alignItems: 'center'}}>
         <TouchableHighlight onPress={() => navigate('Home')} underlayColor="white">
               <View style={styles.button}>
-                <Text style={styles.buttonText}>Sign in</Text>
+                <Text style={styles.buttonText}>Sign In</Text>
               </View>
           </TouchableHighlight>
           <Text style={{paddingTop:2}}></Text>
-           <TouchableHighlight onPress={() => navigate('Home')} underlayColor="white">
+           <TouchableHighlight onPress={() => navigate('Signup')} underlayColor="white">
               <View style={styles.buttonSecondary}>
                 <Text style={styles.buttonText}>Sign Up</Text>
               </View>
@@ -87,7 +94,18 @@ render() {
 }
 
 class HomeScreen extends React.Component {
+    componentWillMount() {
+        Meteor.connect(SERVER_URL);
+    }
+
+   const { navigate } = this.props.navigation;
+
   static navigationOptions = {
+  	title: 'Welcome Back!',
+    headerLeft: <Button onPress={() => navigate('Welcome')}
+    title="Add Friend"/>,
+    headerRight: <Button onPress={() => { Alert.alert('You tapped the button!')}}
+    title="Add Friend"/>
   	title: 'Username',
   };
 
@@ -120,7 +138,7 @@ class HomeScreen extends React.Component {
               <View style={{backgroundColor: '#2196F3'}}>
                 <Text style={styles.buttonText}>Add Friends</Text>
               </View>
-          </TouchableHighlight>  
+          </TouchableHighlight>
       </View>
       </View>
     );
@@ -128,6 +146,9 @@ class HomeScreen extends React.Component {
 }
 
 class AddFriends extends React.Component {
+    componentWillMount() {
+        Meteor.connect(SERVER_URL);
+    }
 	static navigationOptions = {
 		title: 'Add Friends'
 	};
@@ -146,18 +167,32 @@ class AddFriends extends React.Component {
               <View style={{backgroundColor: '#2196F3'}}>
                 <Text style={styles.buttonText}>Add Friend</Text>
               </View>
-          </TouchableHighlight>  
+          </TouchableHighlight>
          </View>
 		);
 	}
 }
 
+class SignupScreen extends React.Component {
+	static navigationOptions = {
+	};
+	render() {
+		const { navigate } = this.props.navigation;
+		return (
+			<View>
+				<Text>Thanks for signing up! Please log in.</Text>
+			</View>
+		);
+	}
+}
 
 const TabsApp = StackNavigator({
   Welcome: 	{screen: WelcomeScreen},
-  Login: 	{screen: LoginScreen},
+  Login: 	  {screen: LoginScreen},
   Home:   	{screen: HomeScreen},
-  Add: 		{screen: AddFriends}},
+  Add: 		{screen: AddFriends},
+  Signup: {screen: SignupScreen}
+  },
 
   {
   	cardStyle: {backgroundColor: 'white'}
