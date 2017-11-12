@@ -32,7 +32,7 @@ class WelcomeScreen extends React.Component {
 
 class LoginScreen extends React.Component {
 static navigationOptions = {
-  header: null,
+header: null,
 };
   
 
@@ -109,19 +109,24 @@ class HomeScreen extends React.Component {
 
 class AddFriends extends React.Component {
 	static navigationOptions = {
-		title: 'Add Username'
+		title: 'Add Friends'
 	};
 	render() {
 		const { navigate } = this.props.navigation;
 		return (
-		 <View style ={styles.container}>
-         <Text style = {styles.subheading}>Enter your friend's username to start a tab with them</Text>
+		 <View style ={{paddingTop:15, paddingBottom:15}}>
+         <Text style = {styles.subheading}>Enter username</Text>
          <TextInput
-           style={{height: 40}}
+           style={{height: 40, textAlign: 'center'}}
            placeholder="friends-username"
            onChangeText={(text) => this.setState({text})}
          />
-         <Text style={{paddingBottom:5}}></Text>
+         <Text style={{paddingBottom:15}}></Text>
+         <TouchableHighlight onPress={() => navigate('Home')} underlayColor="white">
+              <View style={{backgroundColor: '#2196F3'}}>
+                <Text style={styles.buttonText}>Add Friends</Text>
+              </View>
+          </TouchableHighlight>  
          </View>
 		);
 	}
