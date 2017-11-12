@@ -76,7 +76,7 @@ render() {
       <View style={{paddingTop:30, alignItems: 'center'}}>
         <TouchableHighlight onPress={() => navigate('Home')} underlayColor="white">
               <View style={styles.button}>
-                <Text style={styles.buttonText}>Sign in</Text>
+                <Text style={styles.buttonText}>Sign In</Text>
               </View>
           </TouchableHighlight>
           <Text style={{paddingTop:2}}></Text>
@@ -98,7 +98,14 @@ class HomeScreen extends React.Component {
         Meteor.connect(SERVER_URL);
     }
 
+   const { navigate } = this.props.navigation;
+
   static navigationOptions = {
+  	title: 'Welcome Back!',
+    headerLeft: <Button onPress={() => navigate('Welcome')}
+    title="Add Friend"/>,
+    headerRight: <Button onPress={() => { Alert.alert('You tapped the button!')}}
+    title="Add Friend"/>
   	title: 'Username',
   };
 
@@ -149,9 +156,9 @@ class AddFriends extends React.Component {
 
 const TabsApp = StackNavigator({
   Welcome: 	{screen: WelcomeScreen},
-  Login: 	{screen: LoginScreen},
+  Login: 	  {screen: LoginScreen},
   Home:   	{screen: HomeScreen},
-  Add: 		{screen: AddFriends}},
+  Add: 	  	{screen: AddFriends}},
 
   {
   	cardStyle: {backgroundColor: 'white'}
