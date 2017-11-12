@@ -347,18 +347,18 @@ class PaymentScreen extends React.Component {
 
         </View>
 
-       <Text style = {styles.subheading2}>Make payment</Text>
+       <Text style = {styles.subheading2}>I owe {params.name}...</Text>
          <TextInput
            style={{height: 40, textAlign: 'left', paddingLeft: 10}}
-           placeholder="payment-amount"
+           placeholder="0.00"
            onChangeText={(text) => this.setState({text})}
          />
          <Text style={{paddingBottom:5}}></Text>
 
-		<Text style = {styles.subheading2}>Recieve payment</Text>
+		<Text style = {styles.subheading2}>{params.name} owes me...</Text>
          <TextInput
            style={{height: 40, textAlign: 'left', paddingLeft: 10}}
-           placeholder="amount-recieved"
+           placeholder="0.00"
            onChangeText={(text) => this.setState({text})}
          />
          <Text style={{paddingBottom:5}}></Text>
