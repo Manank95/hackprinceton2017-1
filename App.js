@@ -32,7 +32,7 @@ class WelcomeScreen extends React.Component {
 
 class LoginScreen extends React.Component {
 static navigationOptions = {
-  title: 'Sign in or Sign Up',
+  header: null,
 };
   
 
@@ -44,7 +44,7 @@ render() {
 
    const { navigate } = this.props.navigation;
    return (
-     <ScrollView>
+     <ScrollView centerContent={true}>
          <View style ={styles.container}>
          <View style={{alignItems:'center', paddingTop:20, paddingBottom:30}}>
          <Image source={loginPic} style={{width: 43, height: 40}}/>
@@ -78,7 +78,7 @@ render() {
                 <Text style={styles.buttonText}>Sign Up</Text>
               </View>
           </TouchableHighlight>
-      <Text style={{paddingBottom:150}}></Text>
+      <Text style={{paddingBottom:5}}></Text>
       </View>
       </View>
     </ScrollView>
@@ -88,19 +88,16 @@ render() {
 
 class HomeScreen extends React.Component {
   static navigationOptions = {
-  	title: 'Welcome Back!',
-    headerRight: <Button onPress={() => { Alert.alert('You tapped the button!')}}
-    title="Add Friend"/>
+  	title: 'Username',
   };
 
   render() {
     const { navigate } = this.props.navigation;
     return (
       <View>
-        <Text>No running tabs.</Text>
-        <View style={{paddingBottom:10, allignSelf: 'center', justifyContent: 'flex-start',}}>
+        <View style={{paddingBottom:10}}>
         <TouchableHighlight onPress={() => navigate('Add')} underlayColor="white">
-              <View style={styles.button}>
+              <View style={{backgroundColor: '#2196F3'}}>
                 <Text style={styles.buttonText}>Add Friends</Text>
               </View>
           </TouchableHighlight>  
@@ -112,13 +109,20 @@ class HomeScreen extends React.Component {
 
 class AddFriends extends React.Component {
 	static navigationOptions = {
+		title: 'Add Username'
 	};
 	render() {
 		const { navigate } = this.props.navigation;
 		return (
-			<View>
-				<Text>Enter your friend's username</Text>
-			</View>
+		 <View style ={styles.container}>
+         <Text style = {styles.subheading}>Enter your friend's username to start a tab with them</Text>
+         <TextInput
+           style={{height: 40}}
+           placeholder="friends-username"
+           onChangeText={(text) => this.setState({text})}
+         />
+         <Text style={{paddingBottom:5}}></Text>
+         </View>
 		);
 	}
 }
@@ -168,6 +172,7 @@ const styles = StyleSheet.create({
   subheading: {
     fontSize: 18,
     fontWeight: 'bold',
+    textAlign: 'center',
   },
     button: {
     width: 260,
@@ -183,7 +188,8 @@ const styles = StyleSheet.create({
 
   buttonText: {
     padding: 15,
-    color: 'white'
+    color: 'white',
+    textAlign: 'center'
   },
   sectionHeader: {
     paddingTop: 2,
