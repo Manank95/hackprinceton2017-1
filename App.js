@@ -96,7 +96,7 @@ class HomeScreen extends React.Component {
 
   render() {
      let homePic = {
-    uri: 'http://i63.tinypic.com/2zf3k95.jpg'
+    uri: 'http://i68.tinypic.com/2hyffr7.jpg'
   };
     const { navigate } = this.props.navigation;
     return (
@@ -176,7 +176,7 @@ class HomeScreen extends React.Component {
               </View>
           </TouchableHighlight> 
           <View style={{alignItems: 'center', paddingTop:100}}>
-           <Image source={homePic} style={{width: 100, height: 115}}/>
+           <Image source={homePic} style={{width: 115, height: 138}}/>
           </View>
 
    </View>
@@ -243,6 +243,9 @@ class Tabulation extends React.Component {
   };
 
   render() {
+    let tabulationPic = {
+      uri:'http://i66.tinypic.com/2a0npfa.jpg',
+    };
     const { navigate } = this.props.navigation;
     return (
       <View>
@@ -306,7 +309,9 @@ class Tabulation extends React.Component {
                 <Text style={styles.buttonText}>Update Tab</Text>
               </View>
           </TouchableHighlight> 
-          
+           <View style={{alignItems:'center',paddingTop:100}}>
+           <Image source={tabulationPic} style={{width: 101, height: 113}}/>
+          </View>
    </View>
     );
   }
@@ -317,6 +322,9 @@ class PaymentScreen extends React.Component {
 		header: null,
 	};
 	render() {
+    let paymentPic = {
+      uri: 'http://i63.tinypic.com/mboebq.jpg',
+    };
 		const { navigate } = this.props.navigation;
     return (
       <ScrollView>
@@ -365,6 +373,9 @@ class PaymentScreen extends React.Component {
               </View>
           </TouchableHighlight>  
        </View>
+       <View style={{alignItems:'center',paddingTop:100}}>
+           <Image source={paymentPic} style={{width: 125, height: 125}}/>
+          </View>
       </ScrollView>
 		);
 	}
