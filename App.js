@@ -50,7 +50,8 @@ header: null,
 constructor() {
     super();
     this.state = {
-        textValue: 'Change me'
+        username: '',
+        password: '',
     }
 }
 
@@ -76,8 +77,7 @@ render() {
        <TextInput
           style={{height: 40}}
           placeholder="your-username"
-          onChangeText={(text) => this.setState({textValue: text})}
-          placeholder='your-username'
+          onChangeText={(text) => this.setState({username: text})}
         />
 
         <Text> {this.state.textValue} </Text>
@@ -88,7 +88,7 @@ render() {
        <TextInput secureTextEntry={true}
           style={{height: 40}}
           placeholder='your-password'
-          onChangeText={(password) => this.setState({password})}
+          onChangeText={(password) => this.setState({password: password})}
         />
       <View style={{paddingTop:30, alignItems: 'center'}}>
         <TouchableHighlight onPress={() => navigate('Home')} underlayColor="white">
