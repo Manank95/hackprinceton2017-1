@@ -107,15 +107,6 @@ class HomeScreen extends React.Component {
         onPress={() => navigate('Welcome')}></Button>
         </View>
 
-        <TouchableHighlight onPress={() => navigate('Add')} underlayColor="white">
-              <View style={{backgroundColor: 'white'}}>
-                <Text style={styles.friendText}>Tiffany Quon
-                <Text style={styles.positiveTabText}>+$10.00</Text></Text>
-              </View>
-          </TouchableHighlight>
-
-        <Button style={{paddingRight:15}} title = "Log Out"  
-        onPress={() => navigate('Welcome')}></Button>
         </View>
 
 		<View style ={{paddingTop:25, flexDirection: 'row', justifyContent: 'space-between'}}>
@@ -159,22 +150,13 @@ class HomeScreen extends React.Component {
           	 </TouchableHighlight>
         </View>
 
-
-
-
-
-
-      </View>
-
-
-        <View style={{paddingBottom:10}}>
-        <TouchableHighlight onPress={() => navigate('Add')} underlayColor="white">
+        <TouchableHighlight onPress={() => navigate('Home')} underlayColor="white">
               <View style={{backgroundColor: '#2196F3'}}>
-                <Text style={styles.buttonText}>Add Friends</Text>
+                <Text style={styles.buttonText}>Add Friend</Text>
               </View>
-          </TouchableHighlight>  
-      </View>
-      </View>
+          </TouchableHighlight> 
+
+   </View>
     );
   }
 }
