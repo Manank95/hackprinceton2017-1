@@ -19,8 +19,8 @@ class WelcomeScreen extends React.Component {
           <Text> </Text>
           <Text style={styles.headers}>Tabs</Text>
           <Text> </Text>
-          <Text>Share IOUs with people close to you.</Text>
-          <Text> Pay when you're ready—we'll track your tabs for you.</Text>
+          <Text style = {{textAlign: 'center'}}>Share IOUs with people close to you.</Text>
+          <Text style = {{textAlign: 'center'}}> Pay when you're ready—we'll track your tabs for you.</Text>
           <Text></Text><Text></Text>
         <TouchableHighlight onPress={() => navigate('Login')} underlayColor="white">
               <View style={styles.button}>
@@ -175,7 +175,7 @@ class HomeScreen extends React.Component {
                 <Text style={styles.buttonText}>Add Friend</Text>
               </View>
           </TouchableHighlight>
-          <View style={{alignItems: 'center', paddingTop:100}}>
+          <View style={{alignItems: 'center', paddingTop:50}}>
            <Image source={homePic} style={{width: 115, height: 138}}/>
           </View>
 
@@ -193,7 +193,7 @@ class AddFriends extends React.Component {
 	render() {
 		const { navigate } = this.props.navigation;
      let addFriendPic = {
-    uri:  'http://i65.tinypic.com/23ssxn4.jpg',
+    uri:  'http://i63.tinypic.com/t8m58k.jpg',
   };
 		return (
 
@@ -226,8 +226,8 @@ class AddFriends extends React.Component {
                 <Text style={styles.buttonText}>Add Friend</Text>
               </View>
           </TouchableHighlight>
-          <View style={{alignItems:'center',paddingTop:100}}>
-           <Image source={addFriendPic} style={{width: 169, height: 100}}/>
+          <View style={{alignItems:'center',paddingTop:50}}>
+           <Image source={addFriendPic} style={{width: 179, height: 102}}/>
           </View>
 
 
@@ -309,7 +309,7 @@ class Tabulation extends React.Component {
                 <Text style={styles.buttonText}>Update Tab</Text>
               </View>
           </TouchableHighlight>
-           <View style={{alignItems:'center',paddingTop:100}}>
+           <View style={{alignItems:'center',paddingTop:50}}>
            <Image source={tabulationPic} style={{width: 101, height: 113}}/>
           </View>
    </View>
@@ -373,7 +373,7 @@ class PaymentScreen extends React.Component {
               </View>
           </TouchableHighlight>
        </View>
-       <View style={{alignItems:'center',paddingTop:100}}>
+       <View style={{alignItems:'center',paddingTop:50}}>
            <Image source={paymentPic} style={{width: 125, height: 125}}/>
           </View>
       </ScrollView>
