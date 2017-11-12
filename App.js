@@ -213,7 +213,7 @@ class AddFriends extends React.Component {
 	render() {
 		const { navigate } = this.props.navigation;
      let addFriendPic = {
-    uri:  'http://i63.tinypic.com/t8m58k.jpg',
+    uri:  'http://i65.tinypic.com/mn0r2w.jpg',
   };
 		return (
 
@@ -226,7 +226,7 @@ class AddFriends extends React.Component {
               </View>
           </TouchableHighlight>
 
-        <Button style={{paddingRight:15}} title = "Back"
+        <Button style={{paddingRight:15}} title = "Bacnnk"
         onPress={() => navigate('Home')}></Button>
         </View>
 
@@ -346,6 +346,7 @@ class PaymentScreen extends React.Component {
     let paymentPic = {
       uri: 'http://i63.tinypic.com/mboebq.jpg',
     };
+
 		const { navigate } = this.props.navigation;
 		const { params } = this.props.navigation.state;
     return (
@@ -368,14 +369,16 @@ class PaymentScreen extends React.Component {
        <Text style = {styles.subheading2}>I owe {params.name}</Text>
          <TextInput
            style={{height: 40, textAlign: 'left', paddingLeft: 10}}
+           keyboardType = 'numeric'
            placeholder="0.00"
            onChangeText={(text) => this.setState({text})}
-         />
+          />
          <Text style={{paddingBottom:5}}></Text>
 
 		<Text style = {styles.subheading2}>{params.name} owes me</Text>
          <TextInput
            style={{height: 40, textAlign: 'left', paddingLeft: 10}}
+           keyboardType = 'numeric'
            placeholder="0.00"
            onChangeText={(text) => this.setState({text})}
          />
