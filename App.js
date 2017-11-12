@@ -1,9 +1,6 @@
 import React, { Component } from 'react';
 import { ScrollView, TextInput, TouchableHighlight, Image, Alert, Button, AppRegistry, SectionList, StyleSheet, Text, View } from 'react-native';
 import { StackNavigator } from 'react-navigation';
-import Meteor from 'react-native-meteor';
-
-const SERVER_URL = 'ws://10.24.206.70:3000/websocket';
 
 class WelcomeScreen extends React.Component {
   static navigationOptions = {
@@ -22,6 +19,9 @@ class WelcomeScreen extends React.Component {
           <Text> </Text>
           <Text style={styles.headers}>Tabs</Text>
           <Text> </Text>
+          <Text>Share IOUs with people close to you.</Text>
+          <Text> Pay when you're ready—we'll track your tabs for you.</Text>
+          <Text></Text><Text></Text>
         <TouchableHighlight onPress={() => navigate('Login')} underlayColor="white">
               <View style={styles.button}>
                 <Text style={styles.buttonText}>Sign in / Sign up</Text>
@@ -34,10 +34,6 @@ class WelcomeScreen extends React.Component {
 }
 
 class LoginScreen extends React.Component {
-    componentWillMount() {
-	Meteor.connect(SERVER_URL);
-    }
-
 static navigationOptions = {
 header: null,
 };
@@ -76,11 +72,11 @@ render() {
       <View style={{paddingTop:30, alignItems: 'center'}}>
         <TouchableHighlight onPress={() => navigate('Home')} underlayColor="white">
               <View style={styles.button}>
-                <Text style={styles.buttonText}>Sign In</Text>
+                <Text style={styles.buttonText}>Sign in</Text>
               </View>
           </TouchableHighlight>
           <Text style={{paddingTop:2}}></Text>
-           <TouchableHighlight onPress={() => navigate('Signup')} underlayColor="white">
+           <TouchableHighlight onPress={() => navigate('Home')} underlayColor="white">
               <View style={styles.buttonSecondary}>
                 <Text style={styles.buttonText}>Sign Up</Text>
               </View>
@@ -94,59 +90,88 @@ render() {
 }
 
 class HomeScreen extends React.Component {
-    componentWillMount() {
-        Meteor.connect(SERVER_URL);
-    }
-
-   //const { navigate } = this.props.navigation;
-
   static navigationOptions = {
-  	//title: 'Welcome Back!',
-    //headerLeft: <Button onPress={() => navigate('Welcome')}
-    //title="Add Friend"/>,
-  	title: 'Username',
+    header: null,
   };
 
   render() {
+     let homePic = {
+    uri: 'http://i63.tinypic.com/2zf3k95.jpg'
+  };
     const { navigate } = this.props.navigation;
     return (
       <View>
       <View style={{paddingBottom:10, paddingTop:10}}>
-        <TouchableHighlight onPress={() => navigate('Pay')} underlayColor="white">
-              <View style={{backgroundColor: 'white'}}>
-                <Text style={styles.friendText}>Tiffany Quon
-                <Text style={styles.positiveTabText}>+$10.00</Text></Text>
+       <View style ={{paddingTop:10, flexDirection: 'row', justifyContent: 'space-between'}}>
+             <TouchableHighlight underlayColor="white">
+              <View>
+                <Text style={{color:'black', fontWeight:'bold', fontSize: 18, paddingLeft:10, marginTop: 9}}>Sydney's Tabs</Text>
               </View>
           </TouchableHighlight>
-      </View>
 
-      <View style={{paddingBottom:10, paddingTop:10}}>
-        <TouchableHighlight onPress={() => navigate('Pay')} underlayColor="white">
-              <View style={{backgroundColor: 'white'}}>
-                <Text style={styles.friendText}>Owen Bulka
-                <Text style={styles.negativeTabText}>-$42.00</Text></Text>
+        <Button style={{paddingRight:15}} title = "Log Out"
+        onPress={() => navigate('Welcome')}></Button>
+        </View>
+
+        </View>
+
+		<View style ={{paddingTop:10, paddingBottom: 10, flexDirection: 'row', justifyContent: 'space-between'}}>
+             <TouchableHighlight onPress={() => navigate('Pay')} underlayColor="white">
+              <View>
+                <Text style={styles.friendText}>Tiffany Quon</Text>
               </View>
-          </TouchableHighlight>
-      </View>
+          	 </TouchableHighlight>
+			 <TouchableHighlight onPress={() => navigate('Pay')} underlayColor="white">
+              <View>
+                <Text style={styles.positiveTabText}>+ $5.32 </Text>
+              </View>
+          	 </TouchableHighlight>
+        </View>
 
 
 
-        <View style={{paddingBottom:10}}>
+       <View style ={{paddingTop:10, paddingBottom: 10, flexDirection: 'row', justifyContent: 'space-between'}}>
+             <TouchableHighlight onPress={() => navigate('Pay')} underlayColor="white">
+              <View>
+                <Text style={styles.friendText}>Owen Bulka</Text>
+              </View>
+          	 </TouchableHighlight>
+			 <TouchableHighlight onPress={() => navigate('Pay')} underlayColor="white">
+              <View>
+                <Text style={styles.negativeTabText}>- $42.50</Text>
+              </View>
+          	 </TouchableHighlight>
+        </View>
+
+        <View style ={{paddingTop:10, paddingBottom: 10, flexDirection: 'row', justifyContent: 'space-between'}}>
+             <TouchableHighlight onPress={() => navigate('Pay')} underlayColor="white">
+              <View>
+                <Text style={styles.friendText}>Cindy Zhang</Text>
+              </View>
+          	 </TouchableHighlight>
+			 <TouchableHighlight onPress={() => navigate('Pay')} underlayColor="white">
+              <View>
+                <Text style={styles.positiveTabText}>+ $1.07 </Text>
+              </View>
+          	 </TouchableHighlight>
+        </View>
+        <Text></Text>
+
         <TouchableHighlight onPress={() => navigate('Add')} underlayColor="white">
               <View style={{backgroundColor: '#2196F3'}}>
-                <Text style={styles.buttonText}>Add Friends</Text>
+                <Text style={styles.buttonText}>Add Friend</Text>
               </View>
           </TouchableHighlight>
-      </View>
-      </View>
+          <View style={{alignItems: 'center', paddingTop:100}}>
+           <Image source={homePic} style={{width: 100, height: 115}}/>
+          </View>
+
+   </View>
     );
   }
 }
 
 class AddFriends extends React.Component {
-    componentWillMount() {
-        Meteor.connect(SERVER_URL);
-    }
 	static navigationOptions = {
 		title: 'Add Friends'
 	};
@@ -167,19 +192,6 @@ class AddFriends extends React.Component {
               </View>
           </TouchableHighlight>
          </View>
-		);
-	}
-}
-
-class SignupScreen extends React.Component {
-	static navigationOptions = {
-	};
-	render() {
-		const { navigate } = this.props.navigation;
-		return (
-			<View>
-				<Text>Thanks for signing up! Please log in.</Text>
-			</View>
 		);
 	}
 }
@@ -210,10 +222,9 @@ class PaymentScreen extends React.Component {
 
 const TabsApp = StackNavigator({
   Welcome: 	{screen: WelcomeScreen},
-  Login: 	  {screen: LoginScreen},
+  Login: 	{screen: LoginScreen},
   Home:   	{screen: HomeScreen},
   Add: 		{screen: AddFriends},
-  Signup: {screen: SignupScreen},
   Pay: {screen: PaymentScreen}
   },
 
@@ -271,29 +282,23 @@ const styles = StyleSheet.create({
 
   friendText: {
   	padding: 5,
-  	paddingLeft: 15,
+  	paddingLeft: 10,
   	fontSize: 16,
   	color: 'black',
-  	textAlign: 'left',
-  	fontWeight: 'bold'
   },
 
   positiveTabText: {
   	padding: 5,
-  	paddingRight: 15,
+  	paddingRight: 10,
   	fontSize: 16,
   	color: '#8DC63F',
-  	textAlign: 'right',
-  	fontWeight: 'bold'
   },
 
   negativeTabText: {
   	padding: 5,
-  	paddingRight: 15,
+  	paddingRight: 10,
   	fontSize: 16,
   	color: '#DC143C',
-  	textAlign: 'right',
-  	fontWeight: 'bold'
   },
 
   buttonText: {
