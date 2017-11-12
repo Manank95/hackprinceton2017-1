@@ -348,7 +348,6 @@ class PaymentScreen extends React.Component {
 
         </View>
 
-       <Text style = {styles.subheading2}>I owe {params.name}...</Text>
        <Text style = {styles.subheading2}>I owe {params.name}</Text>
          <TextInput
            style={{height: 40, textAlign: 'left', paddingLeft: 10}}
