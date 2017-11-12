@@ -173,12 +173,34 @@ class HomeScreen extends React.Component {
 
 class AddFriends extends React.Component {
 	static navigationOptions = {
-		title: 'Add Friends'
+		header: null,
 	};
+
+
 	render() {
 		const { navigate } = this.props.navigation;
+     let addFriendPic = {
+    uri:  'http://i65.tinypic.com/23ssxn4.jpg',
+  };
 		return (
-		 <View style ={{paddingTop:15, paddingBottom:15}}>
+
+		 <View>
+		<View style={{paddingBottom:10, paddingTop:10}}>
+       <View style ={{paddingTop:10, flexDirection: 'row', justifyContent: 'space-between'}}>
+             <TouchableHighlight underlayColor="white">
+              <View>
+                <Text style={{color:'black', fontWeight:'bold', fontSize: 18, paddingLeft:10, marginTop: 9}}></Text>
+              </View>
+          </TouchableHighlight>
+
+        <Button style={{paddingRight:15}} title = "Back"
+        onPress={() => navigate('Welcome')}></Button>
+        </View>
+
+        </View>
+
+
+
          <Text style = {styles.subheading}>Enter username</Text>
          <TextInput
            style={{height: 40, textAlign: 'center'}}
@@ -191,6 +213,12 @@ class AddFriends extends React.Component {
                 <Text style={styles.buttonText}>Add Friend</Text>
               </View>
           </TouchableHighlight>
+          <View style={{alignItems:'center',paddingTop:100}}>
+           <Image source={addFriendPic} style={{width: 169, height: 100}}/>
+          </View>
+
+
+
          </View>
 		);
 	}
@@ -198,22 +226,39 @@ class AddFriends extends React.Component {
 
 class PaymentScreen extends React.Component {
 	static navigationOptions = {
+		header: null,
 	};
 	render() {
 		const { navigate } = this.props.navigation;
     return (
       <ScrollView>
-      <View style={{paddingTop:30, alignItems: 'center'}}>
-      <TextInput
-         style={{height: 40}}
-         placeholder="payment amount"
-         onChangeText={(text) => this.setState({text})}
-       />
-       <TouchableHighlight onPress={() => navigate('Home')} underlayColor="white">
-             <View style={styles.button}>
-               <Text style={styles.buttonText}>Pay Them Back</Text>
-             </View>
-         </TouchableHighlight>
+      <View>
+      <View style={{paddingBottom:10, paddingTop:10}}>
+       <View style ={{paddingTop:10, flexDirection: 'row', justifyContent: 'space-between'}}>
+             <TouchableHighlight underlayColor="white">
+              <View>
+                <Text style={{color:'black', fontWeight:'bold', fontSize: 18, paddingLeft:10, marginTop: 9}}>Friend's Name</Text>
+              </View>
+          </TouchableHighlight>
+
+        <Button style={{paddingRight:15}} title = "Back"
+        onPress={() => navigate('Welcome')}></Button>
+        </View>
+
+        </View>
+
+       <Text style = {styles.subheading}>Make payment</Text>
+         <TextInput
+           style={{height: 40, textAlign: 'center'}}
+           placeholder="payment-amount"
+           onChangeText={(text) => this.setState({text})}
+         />
+         <Text style={{paddingBottom:5}}></Text>
+         <TouchableHighlight onPress={() => navigate('Home')} underlayColor="white">
+              <View style={{backgroundColor: '#2196F3'}}>
+                <Text style={styles.buttonText}>Pay them back</Text>
+              </View>
+          </TouchableHighlight>
        </View>
       </ScrollView>
 		);
