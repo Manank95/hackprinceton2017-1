@@ -19,6 +19,9 @@ class WelcomeScreen extends React.Component {
           <Text> </Text>
           <Text style={styles.headers}>Tabs</Text>
           <Text> </Text>
+          <Text>Share IOUs with people close to you.</Text>
+          <Text> Pay when you're ready—we'll track your tabs for you.</Text>
+          <Text></Text><Text></Text>
         <TouchableHighlight onPress={() => navigate('Login')} underlayColor="white">
               <View style={styles.button}>
                 <Text style={styles.buttonText}>Sign in / Sign up</Text>
@@ -92,6 +95,9 @@ class HomeScreen extends React.Component {
   };
 
   render() {
+     let homePic = {
+    uri: 'http://i63.tinypic.com/2zf3k95.jpg'
+  };
     const { navigate } = this.props.navigation;
     return (
       <View>
@@ -156,6 +162,9 @@ class HomeScreen extends React.Component {
                 <Text style={styles.buttonText}>Add Friend</Text>
               </View>
           </TouchableHighlight> 
+          <View style={{alignItems: 'center', paddingTop:100}}>
+           <Image source={homePic} style={{width: 100, height: 115}}/>
+          </View>
 
    </View>
     );
