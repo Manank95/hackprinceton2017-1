@@ -105,7 +105,7 @@ class HomeScreen extends React.Component {
        <View style ={{paddingTop:10, flexDirection: 'row', justifyContent: 'space-between'}}>
              <TouchableHighlight underlayColor="white">
               <View>
-                <Text style={{color:'black', fontWeight:'bold', fontSize: 18, paddingLeft:10, marginTop: 9}}>Sydney's Tabs</Text>
+                <Text style={{color:'black', fontWeight:'bold', fontSize: 18, paddingLeft:10, marginTop: 9}}>My Tabs</Text>
               </View>
           </TouchableHighlight>
 
@@ -123,7 +123,20 @@ class HomeScreen extends React.Component {
           	 </TouchableHighlight>
 			 <TouchableHighlight onPress={() => navigate('Pay')} underlayColor="white">
               <View>
-                <Text style={styles.positiveTabText}>+ $5.32 </Text>
+                <Text style={styles.positiveTabText}>+$5.32</Text>
+              </View>
+          	 </TouchableHighlight>
+        </View>
+
+        		<View style ={{paddingTop:10, paddingBottom: 10, flexDirection: 'row', justifyContent: 'space-between'}}>
+             <TouchableHighlight onPress={() => navigate('Pay')} underlayColor="white">
+              <View>
+                <Text style={styles.friendText}>Sydney Seraphim</Text>
+              </View>
+          	 </TouchableHighlight>
+			 <TouchableHighlight onPress={() => navigate('Pay')} underlayColor="white">
+              <View>
+                <Text style={styles.neutralTabText}>$0.00</Text>
               </View>
           	 </TouchableHighlight>
         </View>
@@ -138,7 +151,7 @@ class HomeScreen extends React.Component {
           	 </TouchableHighlight>
 			 <TouchableHighlight onPress={() => navigate('Pay')} underlayColor="white">
               <View>
-                <Text style={styles.negativeTabText}>- $42.50</Text>
+                <Text style={styles.negativeTabText}>-$42.50</Text>
               </View>
           	 </TouchableHighlight>
         </View>
@@ -151,7 +164,7 @@ class HomeScreen extends React.Component {
           	 </TouchableHighlight>
 			 <TouchableHighlight onPress={() => navigate('Pay')} underlayColor="white">
               <View>
-                <Text style={styles.positiveTabText}>+ $1.07 </Text>
+                <Text style={styles.positiveTabText}>+$1.07</Text>
               </View>
           	 </TouchableHighlight>
         </View>
@@ -194,7 +207,7 @@ class AddFriends extends React.Component {
           </TouchableHighlight>
 
         <Button style={{paddingRight:15}} title = "Back"  
-        onPress={() => navigate('Welcome')}></Button>
+        onPress={() => navigate('Home')}></Button>
         </View>
 
         </View>
@@ -242,7 +255,7 @@ class PaymentScreen extends React.Component {
           </TouchableHighlight>
 
         <Button style={{paddingRight:15}} title = "Back"  
-        onPress={() => navigate('Welcome')}></Button>
+        onPress={() => navigate('Home')}></Button>
         </View>
 
         </View>
@@ -344,6 +357,13 @@ const styles = StyleSheet.create({
   	paddingRight: 10,
   	fontSize: 16,
   	color: '#DC143C',
+  },
+
+  neutralTabText: {
+  	padding: 5,
+  	paddingRight: 10,
+  	fontSize: 16,
+  	color: '#808080',
   },
 
   buttonText: {
