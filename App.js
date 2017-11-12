@@ -32,7 +32,7 @@ class WelcomeScreen extends React.Component {
 
 class LoginScreen extends React.Component {
 static navigationOptions = {
-   header: null,
+header: null,
 };
   
 
@@ -44,7 +44,7 @@ render() {
 
    const { navigate } = this.props.navigation;
    return (
-     <ScrollView>
+     <ScrollView centerContent={true}>
          <View style ={styles.container}>
          <View style={{alignItems:'center', paddingTop:20, paddingBottom:30}}>
          <Image source={loginPic} style={{width: 43, height: 40}}/>
@@ -78,7 +78,7 @@ render() {
                 <Text style={styles.buttonText}>Sign Up</Text>
               </View>
           </TouchableHighlight>
-      <Text style={{paddingBottom:150}}></Text>
+      <Text style={{paddingBottom:5}}></Text>
       </View>
       </View>
     </ScrollView>
@@ -90,18 +90,28 @@ class HomeScreen extends React.Component {
    const { navigate } = this.props.navigation;
   
   static navigationOptions = {
+<<<<<<< HEAD
   	title: 'Welcome Back!',
     headerLeft: <Button onPress={() => navigate('Welcome')}
     title="Add Friend"/>,
     headerRight: <Button onPress={() => { Alert.alert('You tapped the button!')}}
     title="Add Friend"/>
+=======
+  	title: 'Username',
+>>>>>>> 3ecb2d4ac09bcf2024bfed3b06487ac1b98eb52d
   };
 
   render() {
     const { navigate } = this.props.navigation;
     return (
       <View>
-        <Text>No running tabs.</Text>
+        <View style={{paddingBottom:10}}>
+        <TouchableHighlight onPress={() => navigate('Add')} underlayColor="white">
+              <View style={{backgroundColor: '#2196F3'}}>
+                <Text style={styles.buttonText}>Add Friends</Text>
+              </View>
+          </TouchableHighlight>  
+      </View>
       </View>
     );
   }
@@ -109,13 +119,25 @@ class HomeScreen extends React.Component {
 
 class AddFriends extends React.Component {
 	static navigationOptions = {
+		title: 'Add Friends'
 	};
 	render() {
 		const { navigate } = this.props.navigation;
 		return (
-			<View>
-				<Text>Enter your friend's username</Text>
-			</View>
+		 <View style ={{paddingTop:15, paddingBottom:15}}>
+         <Text style = {styles.subheading}>Enter username</Text>
+         <TextInput
+           style={{height: 40, textAlign: 'center'}}
+           placeholder="friends-username"
+           onChangeText={(text) => this.setState({text})}
+         />
+         <Text style={{paddingBottom:15}}></Text>
+         <TouchableHighlight onPress={() => navigate('Home')} underlayColor="white">
+              <View style={{backgroundColor: '#2196F3'}}>
+                <Text style={styles.buttonText}>Add Friends</Text>
+              </View>
+          </TouchableHighlight>  
+         </View>
 		);
 	}
 }
@@ -181,7 +203,8 @@ const styles = StyleSheet.create({
 
   buttonText: {
     padding: 15,
-    color: 'white'
+    color: 'white',
+    textAlign: 'center'
   },
   sectionHeader: {
     paddingTop: 2,
