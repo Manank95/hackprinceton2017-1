@@ -18,7 +18,10 @@ class WelcomeScreen extends React.Component {
           <Image source={landingPic} style={{width: 200, height: 129}}/>
           <Text> </Text>
           <Text style={styles.headers}>Tabs</Text>
-          <Text> </Text>
+          <Text></Text>
+          <Text>Share IOUs with people close to you. </Text>
+          <Text>Pay when you're ready—we'll keep the tabs for you.</Text>
+          <Text></Text><Text></Text>
         <TouchableHighlight onPress={() => navigate('Login')} underlayColor="white">
               <View style={styles.button}>
                 <Text style={styles.buttonText}>Sign in / Sign up</Text>
@@ -92,6 +95,10 @@ class HomeScreen extends React.Component {
   };
 
   render() {
+
+    let homePic = {
+      uri: 'http://i64.tinypic.com/nd37zl.jpg',
+    };
     const { navigate } = this.props.navigation;
     return (
       <View>
@@ -99,7 +106,7 @@ class HomeScreen extends React.Component {
        <View style ={{paddingTop:25, flexDirection: 'row', justifyContent: 'space-between'}}>
              <TouchableHighlight underlayColor="white">
               <View>
-                <Text style={{color:'black', fontWeight:'bold', fontSize: 18, paddingLeft:10, marginTop: 9}}>Sydney's Tabs</Text>
+                <Text style={{color:'black', fontWeight:'bold', fontSize: 18, paddingLeft:10, marginTop: 8}}>Sydney's Tabs</Text>
               </View>
           </TouchableHighlight>
 
@@ -125,13 +132,15 @@ class HomeScreen extends React.Component {
       </View>
 
 
-
         <View style={{paddingBottom:10}}>
         <TouchableHighlight onPress={() => navigate('Add')} underlayColor="white">
               <View style={{backgroundColor: '#2196F3'}}>
                 <Text style={styles.buttonText}>Add Friends</Text>
               </View>
           </TouchableHighlight>  
+      </View>
+      <View style ={{alignItems:'center',paddingTop:100}}>
+       <Image source={homePic} style={{width: 203, height: 105}}/>
       </View>
       </View>
     );
