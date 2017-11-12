@@ -96,7 +96,7 @@ class HomeScreen extends React.Component {
     return (
       <View>
       <View style={{paddingBottom:10, paddingTop:10}}>
-       <View style ={{paddingTop:25, flexDirection: 'row', justifyContent: 'space-between'}}>
+       <View style ={{paddingTop:10, flexDirection: 'row', justifyContent: 'space-between'}}>
              <TouchableHighlight underlayColor="white">
               <View>
                 <Text style={{color:'black', fontWeight:'bold', fontSize: 18, paddingLeft:10, marginTop: 9}}>Sydney's Tabs</Text>
@@ -109,7 +109,7 @@ class HomeScreen extends React.Component {
 
         </View>
 
-		<View style ={{paddingTop:25, flexDirection: 'row', justifyContent: 'space-between'}}>
+		<View style ={{paddingTop:10, paddingBottom: 10, flexDirection: 'row', justifyContent: 'space-between'}}>
              <TouchableHighlight onPress={() => navigate('Home')} underlayColor="white">
               <View>
                 <Text style={styles.friendText}>Tiffany Quon</Text>
@@ -124,7 +124,7 @@ class HomeScreen extends React.Component {
 
       
 
-       <View style ={{paddingTop:25, flexDirection: 'row', justifyContent: 'space-between'}}>
+       <View style ={{paddingTop:10, paddingBottom: 10, flexDirection: 'row', justifyContent: 'space-between'}}>
              <TouchableHighlight onPress={() => navigate('Home')} underlayColor="white">
               <View>
                 <Text style={styles.friendText}>Owen Bulka</Text>
@@ -137,7 +137,7 @@ class HomeScreen extends React.Component {
           	 </TouchableHighlight>
         </View>
 
-        <View style ={{paddingTop:25, flexDirection: 'row', justifyContent: 'space-between'}}>
+        <View style ={{paddingTop:10, paddingBottom: 10, flexDirection: 'row', justifyContent: 'space-between'}}>
              <TouchableHighlight onPress={() => navigate('Home')} underlayColor="white">
               <View>
                 <Text style={styles.friendText}>Cindy Zhang</Text>
@@ -149,6 +149,7 @@ class HomeScreen extends React.Component {
               </View>
           	 </TouchableHighlight>
         </View>
+        <Text></Text>
 
         <TouchableHighlight onPress={() => navigate('Home')} underlayColor="white">
               <View style={{backgroundColor: '#2196F3'}}>
