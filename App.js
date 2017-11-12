@@ -195,7 +195,7 @@ class AddFriends extends React.Component {
 	render() {
 		const { navigate } = this.props.navigation;
      let addFriendPic = {
-    uri:  'http://i63.tinypic.com/t8m58k.jpg',
+    uri:  'http://i65.tinypic.com/mn0r2w.jpg',
   };
 		return (
 
