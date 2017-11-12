@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { ScrollView, TextInput, TouchableHighlight, Image, Alert, Button, AppRegistry, SectionList, StyleSheet, Text, View } from 'react-native';
+import { AsyncStorage, ScrollView, TextInput, TouchableHighlight, Image, Alert, Button, AppRegistry, SectionList, StyleSheet, Text, View } from 'react-native';
 import { StackNavigator } from 'react-navigation';
 import { KeyboardAwareScrollView } from 'react-native-keyboard-aware-scroll-view';
 
@@ -42,8 +42,6 @@ class WelcomeScreen extends React.Component {
 }
 
  class LoginScreen extends React.Component {
-	
-
 
 static navigationOptions = {
 header: null,
@@ -139,12 +137,12 @@ class HomeScreen extends React.Component {
         </View>
 
 		<View style ={{paddingTop:10, paddingBottom: 10, flexDirection: 'row', justifyContent: 'space-between', borderColor: '#D3D3D3', borderBottomWidth: 1, borderTopWidth: 1}}>
-             <TouchableHighlight onPress={() => navigate('Tab', {name: "Tiffany"})} underlayColor="white">
+             <TouchableHighlight onPress={() => navigate('Tab', {name: "Tiffany", memo: " ", cost: " ", plus: ""})} underlayColor="white">
               <View>
                 <Text style={styles.friendText}>Tiffany Quon</Text>
               </View>
           	 </TouchableHighlight>
-			 <TouchableHighlight onPress={() => navigate('Tab', {name: "Tiffany"})} underlayColor="white">
+			 <TouchableHighlight onPress={() => navigate('Tab', {name: "Tiffany", memo: " ", cost: " ", plus: ""})} underlayColor="white">
               <View>
                 <Text style={styles.positiveTabText}>+$5.32</Text>
               </View>
@@ -152,12 +150,12 @@ class HomeScreen extends React.Component {
         </View>
 
         		<View style ={{paddingTop:10, paddingBottom: 10, flexDirection: 'row', justifyContent: 'space-between', borderColor: '#D3D3D3',borderBottomWidth: 1}}>
-             <TouchableHighlight onPress={() => navigate('Tab', {name: "Sydney"})} underlayColor="white">
+             <TouchableHighlight onPress={() => navigate('Tab', {name: "Sydney", memo: " ", cost: " ", plus: ""})} underlayColor="white">
               <View>
                 <Text style={styles.friendText}>Sydney Seraphim</Text>
               </View>
           	 </TouchableHighlight>
-			 <TouchableHighlight onPress={() => navigate('Tab', {name: "Sydney"})} underlayColor="white">
+			 <TouchableHighlight onPress={() => navigate('Tab', {name: "Sydney", memo: " ", cost: " ", plus: ""})} underlayColor="white">
               <View>
                 <Text style={styles.neutralTabText}>$0.00</Text>
               </View>
@@ -167,25 +165,25 @@ class HomeScreen extends React.Component {
 
 
        <View style ={{paddingTop:10, paddingBottom: 10, flexDirection: 'row', justifyContent: 'space-between', borderColor: '#D3D3D3',borderBottomWidth: 1}}>
-             <TouchableHighlight onPress={() => navigate('Tab', {name: "Owen"})} underlayColor="white">
+             <TouchableHighlight onPress={() => navigate('Tab', {name: "Owen", memo: " ", cost: " ", plus: ""})} underlayColor="white">
               <View>
                 <Text style={styles.friendText}>Owen Bulka</Text>
               </View>
           	 </TouchableHighlight>
-			 <TouchableHighlight onPress={() => navigate('Tab', {name: "Owen"})} underlayColor="white">
+			 <TouchableHighlight onPress={() => navigate('Tab', {name: "Owen", memo: " ", cost: " ", plus: ""})} underlayColor="white">
               <View>
                 <Text style={styles.negativeTabText}>-$42.50</Text>
               </View>
           	 </TouchableHighlight>
         </View>
 
-        <View style ={{paddingTop:10, paddingBottom: 10, flexDirection: 'row', justifyContent: 'space-between', borderColor: '#D3D3D3',borderBottomWidth: 1}}>
-             <TouchableHighlight onPress={() => navigate('Tab', {name: "Cindy"})} underlayColor="white">
+        <View style ={{paddingTop:10, paddingBottom: 10, flexDirection: 'row', justifyContent: 'space-between', borderColor: '#D3D3D3',borderBottomWidth: 0}}>
+             <TouchableHighlight onPress={() => navigate('Tab', {name: "Cindy", memo: " ", cost: " ", plus: ""})} underlayColor="white">
               <View>
                 <Text style={styles.friendText}>Cindy Zhang</Text>
               </View>
           	 </TouchableHighlight>
-			 <TouchableHighlight onPress={() => navigate('Tab', {name: "Cindy"})} underlayColor="white">
+			 <TouchableHighlight onPress={() => navigate('Tab', {name: "Cindy", memo: " ", cost: " ", plus: ""})} underlayColor="white">
               <View>
                 <Text style={styles.positiveTabText}>+$1.07</Text>
               </View>
@@ -261,9 +259,19 @@ class AddFriends extends React.Component {
 }
 
 class Tabulation extends React.Component {
-	static navigationOptions = {
+
+static navigationOptions = {
     header: null,
   };
+
+  constructor() {
+    super();
+    this.state = {
+       cost: '',
+       memo: '',
+       plus: '',
+    }
+}
 
   render() {
     let tabulationPic = {
@@ -271,6 +279,11 @@ class Tabulation extends React.Component {
     };
     const { navigate } = this.props.navigation;
     const { params } = this.props.navigation.state;
+   
+    this.state.cost = params.cost;
+    this.state.memo = params.memo;
+    this.state.plus = params.plus;
+    
     return (
       <View>
       <View style={{paddingBottom:10, paddingTop:10, borderColor: '#D3D3D3',borderBottomWidth: 1}}>
@@ -326,6 +339,18 @@ class Tabulation extends React.Component {
               </View>
           	 </TouchableHighlight>
         </View>
+        <View style ={{paddingTop:10, paddingBottom: 10, flexDirection: 'row', justifyContent: 'space-between', borderColor: '#D3D3D3'}}>
+        <TouchableHighlight underlayColor="white">
+              <View>
+                <Text style={styles.friendText}>{this.state.memo}</Text>
+              </View>
+             </TouchableHighlight>
+             <TouchableHighlight underlayColor="white">
+              <View>
+                <Text style={styles.positiveTabText}>{this.state.plus}{this.state.cost}</Text>
+              </View>
+        </TouchableHighlight>
+        </View>
         <Text></Text>
 
         <TouchableHighlight onPress={() => navigate('Pay', {name: params.name})} underlayColor="white">
@@ -345,6 +370,15 @@ class PaymentScreen extends React.Component {
 	static navigationOptions = {
 		header: null,
 	};
+    constructor() {
+    super();
+    this.state = {
+        cost: ' ',
+        memo: ' ',
+        plus: '+$',
+    }
+}
+
 	render() {
     let paymentPic = {
       uri: 'http://i63.tinypic.com/mboebq.jpg',
@@ -373,8 +407,8 @@ class PaymentScreen extends React.Component {
          <TextInput
            style={{height: 40, textAlign: 'left', paddingLeft: 10}}
            keyboardType = 'numeric'
-           placeholder="0.00"
-           onChangeText={(text) => this.setState({text})}
+           placeholder="$0.00"
+           onChangeText={(text) => this.setState({cost: text})}
           />
          <Text style={{paddingBottom:5}}></Text>
 
@@ -382,8 +416,8 @@ class PaymentScreen extends React.Component {
          <TextInput
            style={{height: 40, textAlign: 'left', paddingLeft: 10}}
            keyboardType = 'numeric'
-           placeholder="0.00"
-           onChangeText={(text) => this.setState({text})}
+           placeholder="$0.00"
+           onChangeText={(text) => this.setState({cost: text})}
          />
          <Text style={{paddingBottom:5}}></Text>
 
@@ -391,11 +425,14 @@ class PaymentScreen extends React.Component {
          <TextInput
            style={{height: 40, textAlign: 'left', paddingLeft: 10}}
            placeholder="memo"
-           onChangeText={(text) => this.setState({text})}
+           onChangeText={(text) => this.setState({memo: text})}
          />
          <Text style={{paddingBottom:5}}></Text>
 
-         <TouchableHighlight onPress={() => navigate('Tab', {name: params.name})} underlayColor="white">
+         <TouchableHighlight onPress={() => 
+            navigate('Tab', {name: params.name, cost: this.state.cost, memo: this.state.memo, plus: this.state.plus,
+                   })}
+             underlayColor="white">
               <View style={{backgroundColor: '#2196F3'}}>
                 <Text style={styles.buttonText}>Update</Text>
               </View>
