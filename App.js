@@ -173,12 +173,29 @@ class HomeScreen extends React.Component {
 
 class AddFriends extends React.Component {
 	static navigationOptions = {
-		title: 'Add Friends'
+		header: null,
 	};
 	render() {
 		const { navigate } = this.props.navigation;
 		return (
-		 <View style ={{paddingTop:15, paddingBottom:15}}>
+
+		 <View>
+		<View style={{paddingBottom:10, paddingTop:10}}>
+       <View style ={{paddingTop:10, flexDirection: 'row', justifyContent: 'space-between'}}>
+             <TouchableHighlight underlayColor="white">
+              <View>
+                <Text style={{color:'black', fontWeight:'bold', fontSize: 18, paddingLeft:10, marginTop: 9}}></Text>
+              </View>
+          </TouchableHighlight>
+
+        <Button style={{paddingRight:15}} title = "Back"  
+        onPress={() => navigate('Welcome')}></Button>
+        </View>
+
+        </View>
+
+
+
          <Text style = {styles.subheading}>Enter username</Text>
          <TextInput
            style={{height: 40, textAlign: 'center'}}
@@ -209,12 +226,11 @@ class PaymentScreen extends React.Component {
          placeholder="payment amount"
          onChangeText={(text) => this.setState({text})}
        />
-       //<TouchableHighlight onPress={() => navigate('Home')} underlayColor="white">
-       //instead of doing
-        //     <View style={styles.button}>
-          //     <Text style={styles.buttonText}>Pay Them Back</Text>
-            // </View>
-         //</TouchableHighlight>
+       <TouchableHighlight onPress={() => navigate('Home')} underlayColor="white">
+                <View style={styles.button}>
+             <Text style={styles.buttonText}>Pay Them Back</Text>
+            </View>
+         </TouchableHighlight>
        </View>
       </ScrollView>
 		);
