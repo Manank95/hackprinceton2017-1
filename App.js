@@ -270,8 +270,8 @@ static navigationOptions = {
        cost: '',
        memo: '',
        plus: '',
-       tabs: ['Coffee', 'Movie ticket', 'Pitch & Putt',''],
-       amounts: [4.35, -13.5, 16.25, 0],
+       tabs: ['Coffee', 'Movie Ticket', 'Pitch & Putt',''],
+       amounts: [4.35, -13.57, 16.25, 0],
        totalCost: 0,
     }
 }
@@ -325,7 +325,7 @@ calculateSum = () => {
        <View style ={  styles.transaction}>
              <TouchableHighlight underlayColor="white">
               <View>
-                <Text style={styles.friendText}> {this.state.tabs[1]}</Text>
+                <Text style={styles.friendText}>{this.state.tabs[1]}</Text>
               </View>
           	 </TouchableHighlight>
 			 <TouchableHighlight underlayColor="white">
@@ -343,7 +343,7 @@ calculateSum = () => {
           	 </TouchableHighlight>
 			 <TouchableHighlight underlayColor="white">
               <View>
-                <Text style={styles.positiveTabText}>$ {this.state.amounts[2]}</Text>
+                <Text style={styles.positiveTabText}>${this.state.amounts[2]}</Text>
               </View>
           	 </TouchableHighlight>
         </View>
@@ -363,8 +363,8 @@ calculateSum = () => {
         <View style ={styles.transactionTotal}>
              <TouchableHighlight underlayColor="white">
               <View>
-                <Text style={styles.friendText}>Total</Text>
-              </View>
+                <Text style={{padding: 5, paddingLeft: 10, fontSize: 16,color: 'black',fontWeight:'bold'}}>Total</Text>
+               </View>
           	 </TouchableHighlight>
 			 <TouchableHighlight underlayColor="white">
               <View>
@@ -397,7 +397,7 @@ class PaymentScreen extends React.Component {
         cost: ' ',
         memo: ' ',
         totalCost: '',
-        plus: '+$',
+        plus: '$',
     }
 }
 
@@ -529,6 +529,8 @@ const styles = StyleSheet.create({
     flexDirection: 'row',
     justifyContent: 'space-between',
     borderColor: '#D3D3D3',
+    borderBottomWidth: 1
+
   },
   transactionTotal: {
      paddingTop:10,
