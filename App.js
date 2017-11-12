@@ -208,7 +208,7 @@ class AddFriends extends React.Component {
               </View>
           </TouchableHighlight>
 
-        <Button style={{paddingRight:15}} title = "Back"
+        <Button style={{paddingRight:15}} title = "Bacnnk"
         onPress={() => navigate('Home')}></Button>
         </View>
 
