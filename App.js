@@ -95,6 +95,26 @@ class HomeScreen extends React.Component {
     const { navigate } = this.props.navigation;
     return (
       <View>
+      <View style={{paddingBottom:10, paddingTop:10}}>
+        <TouchableHighlight onPress={() => navigate('Add')} underlayColor="white">
+              <View style={{backgroundColor: 'white'}}>
+                <Text style={styles.friendText}>Tiffany Quon
+                <Text style={styles.positiveTabText}>+$10.00</Text></Text>
+              </View>
+          </TouchableHighlight>  
+      </View>
+
+      <View style={{paddingBottom:10, paddingTop:10}}>
+        <TouchableHighlight onPress={() => navigate('Add')} underlayColor="white">
+              <View style={{backgroundColor: 'white'}}>
+                <Text style={styles.friendText}>Owen Bulka
+                <Text style={styles.negativeTabText}>-$42.00</Text></Text>
+              </View>
+          </TouchableHighlight>  
+      </View>
+
+
+
         <View style={{paddingBottom:10}}>
         <TouchableHighlight onPress={() => navigate('Add')} underlayColor="white">
               <View style={{backgroundColor: '#2196F3'}}>
@@ -124,7 +144,7 @@ class AddFriends extends React.Component {
          <Text style={{paddingBottom:15}}></Text>
          <TouchableHighlight onPress={() => navigate('Home')} underlayColor="white">
               <View style={{backgroundColor: '#2196F3'}}>
-                <Text style={styles.buttonText}>Add Friends</Text>
+                <Text style={styles.buttonText}>Add Friend</Text>
               </View>
           </TouchableHighlight>  
          </View>
@@ -189,6 +209,33 @@ const styles = StyleSheet.create({
     width: 260,
     alignItems: 'center',
     backgroundColor: '#8DC63F'
+  },
+
+  friendText: {
+  	padding: 5,
+  	paddingLeft: 15,
+  	fontSize: 16,
+  	color: 'black',
+  	textAlign: 'left',
+  	fontWeight: 'bold'
+  },
+
+  positiveTabText: {
+  	padding: 5,
+  	paddingRight: 15,
+  	fontSize: 16,
+  	color: '#8DC63F',
+  	textAlign: 'right',
+  	fontWeight: 'bold'
+  },
+
+  negativeTabText: {
+  	padding: 5,
+  	paddingRight: 15,
+  	fontSize: 16,
+  	color: '#DC143C',
+  	textAlign: 'right',
+  	fontWeight: 'bold'
   },
 
   buttonText: {
