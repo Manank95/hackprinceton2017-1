@@ -115,7 +115,7 @@ class HomeScreen extends React.Component {
 
         </View>
 
-		<View style ={{paddingTop:10, paddingBottom: 10, flexDirection: 'row', justifyContent: 'space-between'}}>
+		<View style ={{paddingTop:10, paddingBottom: 10, flexDirection: 'row', justifyContent: 'space-between', borderColor: '#D3D3D3', borderBottomWidth: 1, borderTopWidth: 1}}>
              <TouchableHighlight onPress={() => navigate('Tab')} underlayColor="white">
               <View>
                 <Text style={styles.friendText}>Tiffany Quon</Text>
@@ -128,7 +128,7 @@ class HomeScreen extends React.Component {
           	 </TouchableHighlight>
         </View>
 
-        		<View style ={{paddingTop:10, paddingBottom: 10, flexDirection: 'row', justifyContent: 'space-between'}}>
+        		<View style ={{paddingTop:10, paddingBottom: 10, flexDirection: 'row', justifyContent: 'space-between', borderColor: '#D3D3D3',borderBottomWidth: 1}}>
              <TouchableHighlight onPress={() => navigate('Tab')} underlayColor="white">
               <View>
                 <Text style={styles.friendText}>Sydney Seraphim</Text>
@@ -143,7 +143,7 @@ class HomeScreen extends React.Component {
 
       
 
-       <View style ={{paddingTop:10, paddingBottom: 10, flexDirection: 'row', justifyContent: 'space-between'}}>
+       <View style ={{paddingTop:10, paddingBottom: 10, flexDirection: 'row', justifyContent: 'space-between', borderColor: '#D3D3D3',borderBottomWidth: 1}}>
              <TouchableHighlight onPress={() => navigate('Tab')} underlayColor="white">
               <View>
                 <Text style={styles.friendText}>Owen Bulka</Text>
@@ -156,7 +156,7 @@ class HomeScreen extends React.Component {
           	 </TouchableHighlight>
         </View>
 
-        <View style ={{paddingTop:10, paddingBottom: 10, flexDirection: 'row', justifyContent: 'space-between'}}>
+        <View style ={{paddingTop:10, paddingBottom: 10, flexDirection: 'row', justifyContent: 'space-between', borderColor: '#D3D3D3',borderBottomWidth: 1}}>
              <TouchableHighlight onPress={() => navigate('Tab')} underlayColor="white">
               <View>
                 <Text style={styles.friendText}>Cindy Zhang</Text>
@@ -249,11 +249,11 @@ class Tabulation extends React.Component {
     const { navigate } = this.props.navigation;
     return (
       <View>
-      <View style={{paddingBottom:10, paddingTop:10}}>
+      <View style={{paddingBottom:10, paddingTop:10, borderColor: '#D3D3D3',borderBottomWidth: 1}}>
        <View style ={{paddingTop:10, flexDirection: 'row', justifyContent: 'space-between'}}>
              <TouchableHighlight underlayColor="white">
               <View>
-                <Text style={{color:'black', fontWeight:'bold', fontSize: 18, paddingLeft:10, marginTop: 9}}>Example Tab</Text>
+                <Text style={{color:'black', fontWeight:'bold', fontSize: 18, paddingLeft:10, marginTop: 9, borderColor: '#D3D3D3',borderBottomWidth: 1}}>Example Tab</Text>
               </View>
           </TouchableHighlight>
 
@@ -263,7 +263,7 @@ class Tabulation extends React.Component {
 
         </View>
 
-		<View style ={{paddingTop:10, paddingBottom: 10, flexDirection: 'row', justifyContent: 'space-between'}}>
+		<View style ={{paddingTop:10, paddingBottom: 10, flexDirection: 'row', justifyContent: 'space-between', borderColor: '#D3D3D3',borderBottomWidth: 1}}>
              <TouchableHighlight underlayColor="white">
               <View>
                 <Text style={styles.friendText}>Coffee</Text>
@@ -277,7 +277,7 @@ class Tabulation extends React.Component {
         </View>
       
 
-       <View style ={{paddingTop:10, paddingBottom: 10, flexDirection: 'row', justifyContent: 'space-between'}}>
+       <View style ={{paddingTop:10, paddingBottom: 10, flexDirection: 'row', justifyContent: 'space-between', borderColor: '#D3D3D3',borderBottomWidth: 1}}>
              <TouchableHighlight underlayColor="white">
               <View>
                 <Text style={styles.friendText}>Movie ticket</Text>
@@ -290,7 +290,7 @@ class Tabulation extends React.Component {
           	 </TouchableHighlight>
         </View>
 
-        <View style ={{paddingTop:10, paddingBottom: 10, flexDirection: 'row', justifyContent: 'space-between'}}>
+        <View style ={{paddingTop:10, paddingBottom: 10, flexDirection: 'row', justifyContent: 'space-between', borderColor: '#D3D3D3',borderBottomWidth: 1}}>
              <TouchableHighlight underlayColor="white">
               <View>
                 <Text style={styles.friendText}>Pitch & putt</Text>
