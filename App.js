@@ -348,12 +348,8 @@ class PaymentScreen extends React.Component {
 
         </View>
 
-<<<<<<< HEAD
-
        <Text style = {styles.subheading2}>I owe {params.name}...</Text>
-=======
        <Text style = {styles.subheading2}>I owe {params.name}</Text>
->>>>>>> 1801ce338dc8c4c34f0d64a48d2148f2e26adb81
          <TextInput
            style={{height: 40, textAlign: 'left', paddingLeft: 10}}
            keyboardType = 'numeric'
