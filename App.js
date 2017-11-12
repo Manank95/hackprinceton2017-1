@@ -39,7 +39,12 @@ static navigationOptions = {
 header: null,
 };
 
-
+constructor() {
+    super();
+    this.state = {
+        textValue: 'Change me'
+    }
+}
 render() {
 
   let loginPic = {
@@ -48,6 +53,8 @@ render() {
 
    const { navigate } = this.props.navigation;
    return (
+   
+
      <KeyboardAwareScrollView
      scrollEnabled={false}>
          <View style ={styles.container}>
@@ -60,8 +67,10 @@ render() {
        <TextInput
           style={{height: 40}}
           placeholder="your-username"
-          onChangeText={(text) => this.setState({text})}
+          onChangeText={(text) => this.setState({textValue: text})}
         />
+
+        <Text> {this.state.textValue} </Text>
 
       <Text style={{paddingTop:5}}></Text>
         <Text>Password</Text>
@@ -208,7 +217,7 @@ class AddFriends extends React.Component {
               </View>
           </TouchableHighlight>
 
-        <Button style={{paddingRight:15}} title = "Bacnnk"
+        <Button style={{paddingRight:15}} title = "Back"
         onPress={() => navigate('Home')}></Button>
         </View>
 
