@@ -98,14 +98,12 @@ class HomeScreen extends React.Component {
         Meteor.connect(SERVER_URL);
     }
 
-   const { navigate } = this.props.navigation;
+   //const { navigate } = this.props.navigation;
 
   static navigationOptions = {
-  	title: 'Welcome Back!',
-    headerLeft: <Button onPress={() => navigate('Welcome')}
-    title="Add Friend"/>,
-    headerRight: <Button onPress={() => { Alert.alert('You tapped the button!')}}
-    title="Add Friend"/>
+  	//title: 'Welcome Back!',
+    //headerLeft: <Button onPress={() => navigate('Welcome')}
+    //title="Add Friend"/>,
   	title: 'Username',
   };
 
@@ -114,21 +112,21 @@ class HomeScreen extends React.Component {
     return (
       <View>
       <View style={{paddingBottom:10, paddingTop:10}}>
-        <TouchableHighlight onPress={() => navigate('Add')} underlayColor="white">
+        <TouchableHighlight onPress={() => navigate('Pay')} underlayColor="white">
               <View style={{backgroundColor: 'white'}}>
                 <Text style={styles.friendText}>Tiffany Quon
                 <Text style={styles.positiveTabText}>+$10.00</Text></Text>
               </View>
-          </TouchableHighlight>  
+          </TouchableHighlight>
       </View>
 
       <View style={{paddingBottom:10, paddingTop:10}}>
-        <TouchableHighlight onPress={() => navigate('Add')} underlayColor="white">
+        <TouchableHighlight onPress={() => navigate('Pay')} underlayColor="white">
               <View style={{backgroundColor: 'white'}}>
                 <Text style={styles.friendText}>Owen Bulka
                 <Text style={styles.negativeTabText}>-$42.00</Text></Text>
               </View>
-          </TouchableHighlight>  
+          </TouchableHighlight>
       </View>
 
 
@@ -186,12 +184,37 @@ class SignupScreen extends React.Component {
 	}
 }
 
+class PaymentScreen extends React.Component {
+	static navigationOptions = {
+	};
+	render() {
+		const { navigate } = this.props.navigation;
+    return (
+      <ScrollView>
+      <View style={{paddingTop:30, alignItems: 'center'}}>
+      <TextInput
+         style={{height: 40}}
+         placeholder="payment amount"
+         onChangeText={(text) => this.setState({text})}
+       />
+       <TouchableHighlight onPress={() => navigate('Home')} underlayColor="white">
+             <View style={styles.button}>
+               <Text style={styles.buttonText}>Pay Them Back</Text>
+             </View>
+         </TouchableHighlight>
+       </View>
+      </ScrollView>
+		);
+	}
+}
+
 const TabsApp = StackNavigator({
   Welcome: 	{screen: WelcomeScreen},
   Login: 	  {screen: LoginScreen},
   Home:   	{screen: HomeScreen},
   Add: 		{screen: AddFriends},
-  Signup: {screen: SignupScreen}
+  Signup: {screen: SignupScreen},
+  Pay: {screen: PaymentScreen}
   },
 
   {
