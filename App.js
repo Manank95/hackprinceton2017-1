@@ -19,6 +19,9 @@ class WelcomeScreen extends React.Component {
           <Text> </Text>
           <Text style={styles.headers}>Tabs</Text>
           <Text> </Text>
+          <Text>Share IOUs with people close to you.</Text>
+          <Text> Pay when you're ready—we'll track your tabs for you.</Text>
+          <Text></Text><Text></Text>
         <TouchableHighlight onPress={() => navigate('Login')} underlayColor="white">
               <View style={styles.button}>
                 <Text style={styles.buttonText}>Sign in / Sign up</Text>
@@ -92,6 +95,9 @@ class HomeScreen extends React.Component {
   };
 
   render() {
+     let homePic = {
+    uri: 'http://i63.tinypic.com/2zf3k95.jpg'
+  };
     const { navigate } = this.props.navigation;
     return (
       <View>
@@ -110,12 +116,12 @@ class HomeScreen extends React.Component {
         </View>
 
 		<View style ={{paddingTop:10, paddingBottom: 10, flexDirection: 'row', justifyContent: 'space-between'}}>
-             <TouchableHighlight onPress={() => navigate('Home')} underlayColor="white">
+             <TouchableHighlight onPress={() => navigate('Pay')} underlayColor="white">
               <View>
                 <Text style={styles.friendText}>Tiffany Quon</Text>
               </View>
           	 </TouchableHighlight>
-			 <TouchableHighlight onPress={() => navigate('Home')} underlayColor="white">
+			 <TouchableHighlight onPress={() => navigate('Pay')} underlayColor="white">
               <View>
                 <Text style={styles.positiveTabText}>+ $5.32 </Text>
               </View>
@@ -125,12 +131,12 @@ class HomeScreen extends React.Component {
       
 
        <View style ={{paddingTop:10, paddingBottom: 10, flexDirection: 'row', justifyContent: 'space-between'}}>
-             <TouchableHighlight onPress={() => navigate('Home')} underlayColor="white">
+             <TouchableHighlight onPress={() => navigate('Pay')} underlayColor="white">
               <View>
                 <Text style={styles.friendText}>Owen Bulka</Text>
               </View>
           	 </TouchableHighlight>
-			 <TouchableHighlight onPress={() => navigate('Home')} underlayColor="white">
+			 <TouchableHighlight onPress={() => navigate('Pay')} underlayColor="white">
               <View>
                 <Text style={styles.negativeTabText}>- $42.50</Text>
               </View>
@@ -138,12 +144,12 @@ class HomeScreen extends React.Component {
         </View>
 
         <View style ={{paddingTop:10, paddingBottom: 10, flexDirection: 'row', justifyContent: 'space-between'}}>
-             <TouchableHighlight onPress={() => navigate('Home')} underlayColor="white">
+             <TouchableHighlight onPress={() => navigate('Pay')} underlayColor="white">
               <View>
                 <Text style={styles.friendText}>Cindy Zhang</Text>
               </View>
           	 </TouchableHighlight>
-			 <TouchableHighlight onPress={() => navigate('Home')} underlayColor="white">
+			 <TouchableHighlight onPress={() => navigate('Pay')} underlayColor="white">
               <View>
                 <Text style={styles.positiveTabText}>+ $1.07 </Text>
               </View>
@@ -151,11 +157,14 @@ class HomeScreen extends React.Component {
         </View>
         <Text></Text>
 
-        <TouchableHighlight onPress={() => navigate('Home')} underlayColor="white">
+        <TouchableHighlight onPress={() => navigate('Add')} underlayColor="white">
               <View style={{backgroundColor: '#2196F3'}}>
                 <Text style={styles.buttonText}>Add Friend</Text>
               </View>
           </TouchableHighlight> 
+          <View style={{alignItems: 'center', paddingTop:100}}>
+           <Image source={homePic} style={{width: 100, height: 115}}/>
+          </View>
 
    </View>
     );
@@ -187,11 +196,37 @@ class AddFriends extends React.Component {
 	}
 }
 
+class PaymentScreen extends React.Component {
+	static navigationOptions = {
+	};
+	render() {
+		const { navigate } = this.props.navigation;
+    return (
+      <ScrollView>
+      <View style={{paddingTop:30, alignItems: 'center'}}>
+      <TextInput
+         style={{height: 40}}
+         placeholder="payment amount"
+         onChangeText={(text) => this.setState({text})}
+       />
+       //<TouchableHighlight onPress={() => navigate('Home')} underlayColor="white">
+       //instead of doing
+        //     <View style={styles.button}>
+          //     <Text style={styles.buttonText}>Pay Them Back</Text>
+            // </View>
+         //</TouchableHighlight>
+       </View>
+      </ScrollView>
+		);
+	}
+}
+
 
 const TabsApp = StackNavigator({
   Welcome: 	{screen: WelcomeScreen},
   Login: 	{screen: LoginScreen},
   Home:   	{screen: HomeScreen},
+  Pay:      {screen: PaymentScreen}, 
   Add: 		{screen: AddFriends}},
 
   {
