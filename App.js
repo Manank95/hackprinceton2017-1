@@ -114,35 +114,70 @@ class HomeScreen extends React.Component {
         onPress={() => navigate('Welcome')}></Button>
         </View>
 
-        <TouchableHighlight onPress={() => navigate('Add')} underlayColor="white">
-              <View style={{backgroundColor: 'white'}}>
-                <Text style={styles.friendText}>Tiffany Quon
-                <Text style={styles.positiveTabText}>+$10.00</Text></Text>
+        </View>
+
+		<View style ={{paddingTop:25, flexDirection: 'row', justifyContent: 'space-between'}}>
+             <TouchableHighlight onPress={() => navigate('Home')} underlayColor="white">
+              <View>
+                <Text style={styles.friendText}>Tiffany Quon</Text>
               </View>
-          </TouchableHighlight>  
-      </View>
-
-      <View style={{paddingBottom:10, paddingTop:10}}>
-        <TouchableHighlight onPress={() => navigate('Add')} underlayColor="white">
-              <View style={{backgroundColor: 'white'}}>
-                <Text style={styles.friendText}>Owen Bulka
-                <Text style={styles.negativeTabText}>-$42.00</Text></Text>
+          	 </TouchableHighlight>
+			 <TouchableHighlight onPress={() => navigate('Home')} underlayColor="white">
+              <View>
+                <Text style={styles.positiveTabText}>+ $5.32 </Text>
               </View>
-          </TouchableHighlight>  
-      </View>
+          	 </TouchableHighlight>
+        </View>
 
+      
 
+<<<<<<< HEAD
         <View style={{paddingBottom:10}}>
         <TouchableHighlight onPress={() => navigate('Add')} underlayColor="white">
-              <View style={{backgroundColor: '#2196F3'}}>
-                <Text style={styles.buttonText}>Add Friends</Text>
+=======
+       <View style ={{paddingTop:25, flexDirection: 'row', justifyContent: 'space-between'}}>
+             <TouchableHighlight onPress={() => navigate('Home')} underlayColor="white">
+              <View>
+                <Text style={styles.friendText}>Owen Bulka</Text>
               </View>
+          	 </TouchableHighlight>
+			 <TouchableHighlight onPress={() => navigate('Home')} underlayColor="white">
+              <View>
+                <Text style={styles.negativeTabText}>- $42.50</Text>
+              </View>
+          	 </TouchableHighlight>
+        </View>
+
+        <View style ={{paddingTop:25, flexDirection: 'row', justifyContent: 'space-between'}}>
+             <TouchableHighlight onPress={() => navigate('Home')} underlayColor="white">
+              <View>
+                <Text style={styles.friendText}>Cindy Zhang</Text>
+              </View>
+          	 </TouchableHighlight>
+			 <TouchableHighlight onPress={() => navigate('Home')} underlayColor="white">
+              <View>
+                <Text style={styles.positiveTabText}>+ $1.07 </Text>
+              </View>
+          	 </TouchableHighlight>
+        </View>
+
+        <TouchableHighlight onPress={() => navigate('Home')} underlayColor="white">
+>>>>>>> 4cde1af07ec3b58acce85dba1bb2c9329ddf28f7
+              <View style={{backgroundColor: '#2196F3'}}>
+                <Text style={styles.buttonText}>Add Friend</Text>
+              </View>
+<<<<<<< HEAD
           </TouchableHighlight>  
       </View>
       <View style ={{alignItems:'center',paddingTop:100}}>
        <Image source={homePic} style={{width: 203, height: 105}}/>
       </View>
       </View>
+=======
+          </TouchableHighlight> 
+
+   </View>
+>>>>>>> 4cde1af07ec3b58acce85dba1bb2c9329ddf28f7
     );
   }
 }
@@ -233,29 +268,23 @@ const styles = StyleSheet.create({
 
   friendText: {
   	padding: 5,
-  	paddingLeft: 15,
+  	paddingLeft: 10,
   	fontSize: 16,
   	color: 'black',
-  	textAlign: 'left',
-  	fontWeight: 'bold'
   },
 
   positiveTabText: {
   	padding: 5,
-  	paddingRight: 15,
+  	paddingRight: 10,
   	fontSize: 16,
   	color: '#8DC63F',
-  	textAlign: 'right',
-  	fontWeight: 'bold'
   },
 
   negativeTabText: {
   	padding: 5,
-  	paddingRight: 15,
+  	paddingRight: 10,
   	fontSize: 16,
   	color: '#DC143C',
-  	textAlign: 'right',
-  	fontWeight: 'bold'
   },
 
   buttonText: {
