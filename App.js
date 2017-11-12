@@ -1,6 +1,9 @@
 import React, { Component } from 'react';
 import { ScrollView, TextInput, TouchableHighlight, Image, Alert, Button, AppRegistry, SectionList, StyleSheet, Text, View } from 'react-native';
 import { StackNavigator } from 'react-navigation';
+import Meteor from 'react-native-meteor';
+
+const SERVER_URL = 'ws://10.24.206.70:3000/websocket';
 
 class WelcomeScreen extends React.Component {
   static navigationOptions = {
@@ -31,6 +34,10 @@ class WelcomeScreen extends React.Component {
 }
 
 class LoginScreen extends React.Component {
+    componentWillMount() {
+	Meteor.connect(SERVER_URL);
+    }
+
 static navigationOptions = {
 header: null,
 };
@@ -87,6 +94,10 @@ render() {
 }
 
 class HomeScreen extends React.Component {
+    componentWillMount() {
+        Meteor.connect(SERVER_URL);
+    }
+
   static navigationOptions = {
   	title: 'Username',
   };
@@ -108,6 +119,9 @@ class HomeScreen extends React.Component {
 }
 
 class AddFriends extends React.Component {
+    componentWillMount() {
+        Meteor.connect(SERVER_URL);
+    }
 	static navigationOptions = {
 		title: 'Add Friends'
 	};
