@@ -243,9 +243,6 @@ class Tabulation extends React.Component {
   };
 
   render() {
-     let homePic = {
-    uri: 'http://i63.tinypic.com/2zf3k95.jpg'
-  };
     const { navigate } = this.props.navigation;
     return (
       <View>
@@ -275,20 +272,6 @@ class Tabulation extends React.Component {
               </View>
           	 </TouchableHighlight>
         </View>
-
-        		<View style ={{paddingTop:10, paddingBottom: 10, flexDirection: 'row', justifyContent: 'space-between'}}>
-             <TouchableHighlight underlayColor="white">
-              <View>
-                <Text style={styles.friendText}>Dinner</Text>
-              </View>
-          	 </TouchableHighlight>
-			 <TouchableHighlight underlayColor="white">
-              <View>
-                <Text style={styles.negativeTabText}>-$13.52</Text>
-              </View>
-          	 </TouchableHighlight>
-        </View>
-
       
 
        <View style ={{paddingTop:10, paddingBottom: 10, flexDirection: 'row', justifyContent: 'space-between'}}>
@@ -320,13 +303,10 @@ class Tabulation extends React.Component {
 
         <TouchableHighlight onPress={() => navigate('Pay')} underlayColor="white">
               <View style={{backgroundColor: '#2196F3'}}>
-                <Text style={styles.buttonText}>Make Payment</Text>
+                <Text style={styles.buttonText}>Update Tab</Text>
               </View>
           </TouchableHighlight> 
-          <View style={{alignItems: 'center', paddingTop:100}}>
-           <Image source={homePic} style={{width: 100, height: 115}}/>
-          </View>
-
+          
    </View>
     );
   }
@@ -355,16 +335,25 @@ class PaymentScreen extends React.Component {
 
         </View>
 
-       <Text style = {styles.subheading}>Make payment</Text>
+       <Text style = {styles.subheading2}>Make payment</Text>
          <TextInput
-           style={{height: 40, textAlign: 'center'}}
+           style={{height: 40, textAlign: 'left', paddingLeft: 10}}
            placeholder="payment-amount"
            onChangeText={(text) => this.setState({text})}
          />
          <Text style={{paddingBottom:5}}></Text>
+
+		<Text style = {styles.subheading2}>Recieve payment</Text>
+         <TextInput
+           style={{height: 40, textAlign: 'left', paddingLeft: 10}}
+           placeholder="amount-recieved"
+           onChangeText={(text) => this.setState({text})}
+         />
+         <Text style={{paddingBottom:5}}></Text>
+
          <TouchableHighlight onPress={() => navigate('Tab')} underlayColor="white">
               <View style={{backgroundColor: '#2196F3'}}>
-                <Text style={styles.buttonText}>Pay them back</Text>
+                <Text style={styles.buttonText}>Update</Text>
               </View>
           </TouchableHighlight>  
        </View>
@@ -422,6 +411,14 @@ const styles = StyleSheet.create({
     fontWeight: 'bold',
     textAlign: 'center',
   },
+
+  subheading2: {
+    fontSize: 18,
+    fontWeight: 'bold',
+    textAlign: 'left',
+    paddingLeft: 10,
+  },
+
     button: {
     width: 260,
     alignItems: 'center',
