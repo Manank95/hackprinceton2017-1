@@ -116,12 +116,12 @@ class HomeScreen extends React.Component {
         </View>
 
 		<View style ={{paddingTop:10, paddingBottom: 10, flexDirection: 'row', justifyContent: 'space-between'}}>
-             <TouchableHighlight onPress={() => navigate('Pay')} underlayColor="white">
+             <TouchableHighlight onPress={() => navigate('Tab')} underlayColor="white">
               <View>
                 <Text style={styles.friendText}>Tiffany Quon</Text>
               </View>
           	 </TouchableHighlight>
-			 <TouchableHighlight onPress={() => navigate('Pay')} underlayColor="white">
+			 <TouchableHighlight onPress={() => navigate('Tab')} underlayColor="white">
               <View>
                 <Text style={styles.positiveTabText}>+$5.32</Text>
               </View>
@@ -129,12 +129,12 @@ class HomeScreen extends React.Component {
         </View>
 
         		<View style ={{paddingTop:10, paddingBottom: 10, flexDirection: 'row', justifyContent: 'space-between'}}>
-             <TouchableHighlight onPress={() => navigate('Pay')} underlayColor="white">
+             <TouchableHighlight onPress={() => navigate('Tab')} underlayColor="white">
               <View>
                 <Text style={styles.friendText}>Sydney Seraphim</Text>
               </View>
           	 </TouchableHighlight>
-			 <TouchableHighlight onPress={() => navigate('Pay')} underlayColor="white">
+			 <TouchableHighlight onPress={() => navigate('Tab')} underlayColor="white">
               <View>
                 <Text style={styles.neutralTabText}>$0.00</Text>
               </View>
@@ -144,12 +144,12 @@ class HomeScreen extends React.Component {
       
 
        <View style ={{paddingTop:10, paddingBottom: 10, flexDirection: 'row', justifyContent: 'space-between'}}>
-             <TouchableHighlight onPress={() => navigate('Pay')} underlayColor="white">
+             <TouchableHighlight onPress={() => navigate('Tab')} underlayColor="white">
               <View>
                 <Text style={styles.friendText}>Owen Bulka</Text>
               </View>
           	 </TouchableHighlight>
-			 <TouchableHighlight onPress={() => navigate('Pay')} underlayColor="white">
+			 <TouchableHighlight onPress={() => navigate('Tab')} underlayColor="white">
               <View>
                 <Text style={styles.negativeTabText}>-$42.50</Text>
               </View>
@@ -157,12 +157,12 @@ class HomeScreen extends React.Component {
         </View>
 
         <View style ={{paddingTop:10, paddingBottom: 10, flexDirection: 'row', justifyContent: 'space-between'}}>
-             <TouchableHighlight onPress={() => navigate('Pay')} underlayColor="white">
+             <TouchableHighlight onPress={() => navigate('Tab')} underlayColor="white">
               <View>
                 <Text style={styles.friendText}>Cindy Zhang</Text>
               </View>
           	 </TouchableHighlight>
-			 <TouchableHighlight onPress={() => navigate('Pay')} underlayColor="white">
+			 <TouchableHighlight onPress={() => navigate('Tab')} underlayColor="white">
               <View>
                 <Text style={styles.positiveTabText}>+$1.07</Text>
               </View>
@@ -237,6 +237,101 @@ class AddFriends extends React.Component {
 	}
 } 
 
+class Tabulation extends React.Component {
+	static navigationOptions = {
+    header: null,
+  };
+
+  render() {
+     let homePic = {
+    uri: 'http://i63.tinypic.com/2zf3k95.jpg'
+  };
+    const { navigate } = this.props.navigation;
+    return (
+      <View>
+      <View style={{paddingBottom:10, paddingTop:10}}>
+       <View style ={{paddingTop:10, flexDirection: 'row', justifyContent: 'space-between'}}>
+             <TouchableHighlight underlayColor="white">
+              <View>
+                <Text style={{color:'black', fontWeight:'bold', fontSize: 18, paddingLeft:10, marginTop: 9}}>Example Tab</Text>
+              </View>
+          </TouchableHighlight>
+
+        <Button style={{paddingRight:15}} title = "Back"  
+        onPress={() => navigate('Home')}></Button>
+        </View>
+
+        </View>
+
+		<View style ={{paddingTop:10, paddingBottom: 10, flexDirection: 'row', justifyContent: 'space-between'}}>
+             <TouchableHighlight underlayColor="white">
+              <View>
+                <Text style={styles.friendText}>Coffee</Text>
+              </View>
+          	 </TouchableHighlight>
+			 <TouchableHighlight underlayColor="white">
+              <View>
+                <Text style={styles.positiveTabText}>+$4.35</Text>
+              </View>
+          	 </TouchableHighlight>
+        </View>
+
+        		<View style ={{paddingTop:10, paddingBottom: 10, flexDirection: 'row', justifyContent: 'space-between'}}>
+             <TouchableHighlight underlayColor="white">
+              <View>
+                <Text style={styles.friendText}>Dinner</Text>
+              </View>
+          	 </TouchableHighlight>
+			 <TouchableHighlight underlayColor="white">
+              <View>
+                <Text style={styles.negativeTabText}>-$13.52</Text>
+              </View>
+          	 </TouchableHighlight>
+        </View>
+
+      
+
+       <View style ={{paddingTop:10, paddingBottom: 10, flexDirection: 'row', justifyContent: 'space-between'}}>
+             <TouchableHighlight underlayColor="white">
+              <View>
+                <Text style={styles.friendText}>Movie ticket</Text>
+              </View>
+          	 </TouchableHighlight>
+			 <TouchableHighlight underlayColor="white">
+              <View>
+                <Text style={styles.negativeTabText}>-$13.50</Text>
+              </View>
+          	 </TouchableHighlight>
+        </View>
+
+        <View style ={{paddingTop:10, paddingBottom: 10, flexDirection: 'row', justifyContent: 'space-between'}}>
+             <TouchableHighlight underlayColor="white">
+              <View>
+                <Text style={styles.friendText}>Pitch & putt</Text>
+              </View>
+          	 </TouchableHighlight>
+			 <TouchableHighlight underlayColor="white">
+              <View>
+                <Text style={styles.positiveTabText}>+$16.25</Text>
+              </View>
+          	 </TouchableHighlight>
+        </View>
+        <Text></Text>
+
+        <TouchableHighlight onPress={() => navigate('Pay')} underlayColor="white">
+              <View style={{backgroundColor: '#2196F3'}}>
+                <Text style={styles.buttonText}>Make Payment</Text>
+              </View>
+          </TouchableHighlight> 
+          <View style={{alignItems: 'center', paddingTop:100}}>
+           <Image source={homePic} style={{width: 100, height: 115}}/>
+          </View>
+
+   </View>
+    );
+  }
+}
+
 class PaymentScreen extends React.Component {
 	static navigationOptions = {
 		header: null,
@@ -250,12 +345,12 @@ class PaymentScreen extends React.Component {
        <View style ={{paddingTop:10, flexDirection: 'row', justifyContent: 'space-between'}}>
              <TouchableHighlight underlayColor="white">
               <View>
-                <Text style={{color:'black', fontWeight:'bold', fontSize: 18, paddingLeft:10, marginTop: 9}}>Friend's Name</Text>
+                <Text style={{color:'black', fontWeight:'bold', fontSize: 18, paddingLeft:10, marginTop: 9}}></Text>
               </View>
           </TouchableHighlight>
 
         <Button style={{paddingRight:15}} title = "Back"  
-        onPress={() => navigate('Home')}></Button>
+        onPress={() => navigate('Tab')}></Button>
         </View>
 
         </View>
@@ -267,7 +362,7 @@ class PaymentScreen extends React.Component {
            onChangeText={(text) => this.setState({text})}
          />
          <Text style={{paddingBottom:5}}></Text>
-         <TouchableHighlight onPress={() => navigate('Home')} underlayColor="white">
+         <TouchableHighlight onPress={() => navigate('Tab')} underlayColor="white">
               <View style={{backgroundColor: '#2196F3'}}>
                 <Text style={styles.buttonText}>Pay them back</Text>
               </View>
@@ -284,6 +379,7 @@ const TabsApp = StackNavigator({
   Login: 	{screen: LoginScreen},
   Home:   	{screen: HomeScreen},
   Pay:      {screen: PaymentScreen}, 
+  Tab: 		{screen: Tabulation}, 
   Add: 		{screen: AddFriends}},
 
   {
