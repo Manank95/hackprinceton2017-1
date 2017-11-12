@@ -63,7 +63,7 @@ render() {
 
    const { navigate } = this.props.navigation;
    return (
-   
+
 
      <KeyboardAwareScrollView
      scrollEnabled={false}>
@@ -270,20 +270,28 @@ static navigationOptions = {
        cost: '',
        memo: '',
        plus: '',
+       tabs: ['Coffee', 'Movie ticket', 'Pitch & Putt',''],
+       amounts: [4.35, -13.5, 16.25, 0],
+       totalCost: 0,
     }
 }
 
+calculateSum = () => {
+  <div>
+    var costsum = Number({this.state.cost}) + Number({this.state.amounts[0]})+ Number({this.state.amounts[1]})+ Number({this.state.amounts[2]});
+  </div>
+}
   render() {
     let tabulationPic = {
       uri:'http://i66.tinypic.com/2a0npfa.jpg',
     };
     const { navigate } = this.props.navigation;
     const { params } = this.props.navigation.state;
-   
+
     this.state.cost = params.cost;
     this.state.memo = params.memo;
     this.state.plus = params.plus;
-    
+
     return (
       <View>
       <View style={{paddingBottom:10, paddingTop:10, borderColor: '#D3D3D3',borderBottomWidth: 1}}>
@@ -300,42 +308,42 @@ static navigationOptions = {
 
         </View>
 
-		<View style ={{paddingTop:10, paddingBottom: 10, flexDirection: 'row', justifyContent: 'space-between', borderColor: '#D3D3D3',borderBottomWidth: 1}}>
+		<View style ={ styles.transaction}>
              <TouchableHighlight underlayColor="white">
               <View>
-                <Text style={styles.friendText}>Coffee</Text>
+                <Text style={styles.friendText}>{this.state.tabs[0]}</Text>
               </View>
           	 </TouchableHighlight>
 			 <TouchableHighlight underlayColor="white">
               <View>
-                <Text style={styles.positiveTabText}>+$4.35</Text>
+                <Text style={styles.positiveTabText}>${this.state.amounts[0]}</Text>
               </View>
           	 </TouchableHighlight>
         </View>
 
 
-       <View style ={{paddingTop:10, paddingBottom: 10, flexDirection: 'row', justifyContent: 'space-between', borderColor: '#D3D3D3',borderBottomWidth: 1}}>
+       <View style ={  styles.transaction}>
              <TouchableHighlight underlayColor="white">
               <View>
-                <Text style={styles.friendText}>Movie ticket</Text>
+                <Text style={styles.friendText}> {this.state.tabs[1]}</Text>
               </View>
           	 </TouchableHighlight>
 			 <TouchableHighlight underlayColor="white">
               <View>
-                <Text style={styles.negativeTabText}>-$13.50</Text>
+                <Text style={styles.negativeTabText}>${this.state.amounts[1]}</Text>
               </View>
           	 </TouchableHighlight>
         </View>
 
-        <View style ={{paddingTop:10, paddingBottom: 10, flexDirection: 'row', justifyContent: 'space-between', borderColor: '#D3D3D3',borderBottomWidth: 1}}>
+        <View style ={ styles.transaction}>
              <TouchableHighlight underlayColor="white">
               <View>
-                <Text style={styles.friendText}>Pitch & putt</Text>
+                <Text style={styles.friendText}>{this.state.tabs[2]}</Text>
               </View>
           	 </TouchableHighlight>
 			 <TouchableHighlight underlayColor="white">
               <View>
-                <Text style={styles.positiveTabText}>+$16.25</Text>
+                <Text style={styles.positiveTabText}>$ {this.state.amounts[2]}</Text>
               </View>
           	 </TouchableHighlight>
         </View>
@@ -350,6 +358,19 @@ static navigationOptions = {
                 <Text style={styles.positiveTabText}>{this.state.plus}{this.state.cost}</Text>
               </View>
         </TouchableHighlight>
+        </View>
+
+        <View style ={styles.transactionTotal}>
+             <TouchableHighlight underlayColor="white">
+              <View>
+                <Text style={styles.friendText}>Total</Text>
+              </View>
+          	 </TouchableHighlight>
+			 <TouchableHighlight underlayColor="white">
+              <View>
+                <Text style={styles.positiveTabText}>$5.32</Text>
+              </View>
+          	 </TouchableHighlight>
         </View>
         <Text></Text>
 
@@ -375,6 +396,7 @@ class PaymentScreen extends React.Component {
     this.state = {
         cost: ' ',
         memo: ' ',
+        totalCost: '',
         plus: '+$',
     }
 }
@@ -429,7 +451,7 @@ class PaymentScreen extends React.Component {
          />
          <Text style={{paddingBottom:5}}></Text>
 
-         <TouchableHighlight onPress={() => 
+         <TouchableHighlight onPress={() =>
             navigate('Tab', {name: params.name, cost: this.state.cost, memo: this.state.memo, plus: this.state.plus,
                    })}
              underlayColor="white">
@@ -501,7 +523,20 @@ const styles = StyleSheet.create({
     textAlign: 'left',
     paddingLeft: 10,
   },
-
+  transaction: {
+    paddingTop:10,
+    paddingBottom: 10,
+    flexDirection: 'row',
+    justifyContent: 'space-between',
+    borderColor: '#D3D3D3',
+  },
+  transactionTotal: {
+     paddingTop:10,
+    paddingBottom: 10,
+    flexDirection: 'row',
+    justifyContent: 'space-between',
+    borderColor: '#D3D3D3',
+  },
     button: {
     width: 260,
     alignItems: 'center',
