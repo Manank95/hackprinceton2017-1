@@ -347,7 +347,7 @@ class PaymentScreen extends React.Component {
 
         </View>
 
-       <Text style = {styles.subheading2}>I owe {params.name}...</Text>
+       <Text style = {styles.subheading2}>I owe {params.name}</Text>
          <TextInput
            style={{height: 40, textAlign: 'left', paddingLeft: 10}}
            placeholder="0.00"
@@ -355,7 +355,7 @@ class PaymentScreen extends React.Component {
          />
          <Text style={{paddingBottom:5}}></Text>
 
-		<Text style = {styles.subheading2}>{params.name} owes me...</Text>
+		<Text style = {styles.subheading2}>{params.name} owes me</Text>
          <TextInput
            style={{height: 40, textAlign: 'left', paddingLeft: 10}}
            placeholder="0.00"
