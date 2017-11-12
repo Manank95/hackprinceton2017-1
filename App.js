@@ -54,7 +54,7 @@ render() {
          </View>
 
         <Text style = {styles.subheading}>Enter your username and password to sign in or create an account</Text>
-        <Text style = {{paddingTop:20}}> Username </Text>
+        <Text style = {{paddingTop:20}}>Username </Text>
        <TextInput
           style={{height: 40}}
           placeholder="your-username"
