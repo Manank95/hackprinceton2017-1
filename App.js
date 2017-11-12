@@ -3,6 +3,13 @@ import { ScrollView, TextInput, TouchableHighlight, Image, Alert, Button, AppReg
 import { StackNavigator } from 'react-navigation';
 import { KeyboardAwareScrollView } from 'react-native-keyboard-aware-scroll-view';
 
+import DB = require('./DB.js');
+
+var DBEvents = require('react-native-db-models').DBEvents
+
+DBEvents.on("all", function(){ console.log("Database changed");  })
+
+
 class WelcomeScreen extends React.Component {
   static navigationOptions = {
     header: null,
@@ -35,10 +42,21 @@ class WelcomeScreen extends React.Component {
 }
 
 class LoginScreen extends React.Component {
+	state = {
+		username: 'your username',
+		password: 'your password',
+	}
+
+	add_user: function() {
+		DB.users.add({usr: this.state.username, pass: this.state.password},, function(added_data){
+			if(added_data){ navigate('Home'); }
+		})
+	}
+
+
 static navigationOptions = {
 header: null,
 };
-
 
 render() {
 
@@ -48,7 +66,7 @@ render() {
 
    const { navigate } = this.props.navigation;
    return (
-     <KeyboardAwareScrollView 
+     <KeyboardAwareScrollView
      scrollEnabled={false}>
          <View style ={styles.container}>
          <View style={{alignItems:'center', justifyContent: 'center', paddingTop:65, paddingBottom:30}}>
@@ -59,8 +77,8 @@ render() {
         <Text style = {{paddingTop:20}}>Username </Text>
        <TextInput
           style={{height: 40}}
-          placeholder="your-username"
-          onChangeText={(text) => this.setState({text})}
+          placeholder=this.state.username
+          onChangeText={(username) => this.setState({username})}
         />
 
       <Text style={{paddingTop:5}}></Text>
@@ -68,8 +86,8 @@ render() {
 
        <TextInput secureTextEntry={true}
           style={{height: 40}}
-          placeholder="your-password"
-          onChangeText={(text) => this.setState({text})}
+          placeholder=this.state.password
+          onChangeText={(password) => this.setState({password})}
         />
       <View style={{paddingTop:30, alignItems: 'center'}}>
         <TouchableHighlight onPress={() => navigate('Home')} underlayColor="white">
@@ -78,7 +96,7 @@ render() {
               </View>
           </TouchableHighlight>
           <Text style={{paddingTop:2}}></Text>
-           <TouchableHighlight onPress={() => navigate('Home')} underlayColor="white">
+           <TouchableHighlight onPress={() => this.add_user} underlayColor="white">
               <View style={styles.buttonSecondary}>
                 <Text style={styles.buttonText}>Sign Up</Text>
               </View>
