@@ -48,7 +48,7 @@ render() {
 
    const { navigate } = this.props.navigation;
    return (
-     <KeyboardAwareScrollView 
+     <KeyboardAwareScrollView
      scrollEnabled={false}>
          <View style ={styles.container}>
          <View style={{alignItems:'center', justifyContent: 'center', paddingTop:65, paddingBottom:30}}>
@@ -328,6 +328,7 @@ class PaymentScreen extends React.Component {
     let paymentPic = {
       uri: 'http://i63.tinypic.com/mboebq.jpg',
     };
+
 		const { navigate } = this.props.navigation;
 		const { params } = this.props.navigation.state;
     return (
@@ -350,14 +351,16 @@ class PaymentScreen extends React.Component {
        <Text style = {styles.subheading2}>I owe {params.name}</Text>
          <TextInput
            style={{height: 40, textAlign: 'left', paddingLeft: 10}}
+           keyboardType = 'numeric'
            placeholder="0.00"
            onChangeText={(text) => this.setState({text})}
-         />
+          />
          <Text style={{paddingBottom:5}}></Text>
 
 		<Text style = {styles.subheading2}>{params.name} owes me</Text>
          <TextInput
            style={{height: 40, textAlign: 'left', paddingLeft: 10}}
+           keyboardType = 'numeric'
            placeholder="0.00"
            onChangeText={(text) => this.setState({text})}
          />
