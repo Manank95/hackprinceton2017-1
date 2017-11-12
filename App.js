@@ -175,8 +175,13 @@ class AddFriends extends React.Component {
 	static navigationOptions = {
 		header: null,
 	};
+
+
 	render() {
 		const { navigate } = this.props.navigation;
+     let addFriendPic = {
+    uri:  'http://i65.tinypic.com/23ssxn4.jpg',
+  };
 		return (
 
 		 <View>
@@ -208,10 +213,16 @@ class AddFriends extends React.Component {
                 <Text style={styles.buttonText}>Add Friend</Text>
               </View>
           </TouchableHighlight>  
+          <View style={{alignItems:'center',paddingTop:100}}>
+           <Image source={addFriendPic} style={{width: 169, height: 100}}/>
+          </View>
+          
+         
+
          </View>
 		);
 	}
-}
+} 
 
 class PaymentScreen extends React.Component {
 	static navigationOptions = {
